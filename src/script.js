@@ -18,7 +18,19 @@ function rollDice(){
      // Set the source attribute of the dice images
     document.querySelector(".img1").setAttribute("src",z[x-1]);
     document.querySelector(".img2").setAttribute("src",z[y-1]);
+
+    // Show the Number of the displayed Dice
+    let num1 = document.getElementById("diceValue1");
+    let num2 = document.getElementById("diceValue2");
+
+   // Change the text content to a number
+  num1.textContent = x ;
+  num2.textContent = y ;
+
+
+
 }
+
 
 
 
