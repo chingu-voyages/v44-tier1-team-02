@@ -27,6 +27,11 @@ function rollDice(){
   num1.textContent = x ;
   num2.textContent = y ;
 
+//Round Score
+let roundScore = document.getElementById("round-score");
+let score = x * y;
+roundScore.textContent = "Round Score: " + score;
+
 
 
 }
