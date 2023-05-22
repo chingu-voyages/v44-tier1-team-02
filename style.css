@@ -1,7 +1,25 @@
+.grid {
+  display: grid;
+  gap: 0;
+  width: 80%;
+  place-items: center;
+}
+
+.box {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
 body {
   background-color: lightgrey;
 }
-.grid {
+
+.grid-2 {
   background-color: black;
   width: 500px;
   height: 500px;
@@ -10,6 +28,7 @@ body {
   flex-wrap: wrap;
   overflow: hidden;
 }
+
 .cell {
   width: 10%;
   height: 10%;
