@@ -1,4 +1,4 @@
-const grid = document.querySelector('.grid');
+const grid = document.querySelector('.grid-2');
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 
