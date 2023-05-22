@@ -29,14 +29,13 @@ function addPositionXY() {
 }
 
 function colorCell(event) {
-  if (dice > 0) {
+  if (dice > 0 && event.target.style.backgroundColor !== "red") {
     event.target.style.backgroundColor = "red";
     dice--;
   }
 }
 
 function clearCell(event) {
-  event.preventDefault();
   if (event.target.style.backgroundColor === "red") {
     event.target.style.backgroundColor = "white";
     dice++;
@@ -58,5 +57,6 @@ if (COL > ROW) {
 }
 
 let grid = document.querySelector(".grid");
+
 grid.addEventListener("click", colorCell);
 grid.addEventListener("dblclick", clearCell);
