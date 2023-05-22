@@ -1,0 +1,89 @@
+body{
+    background-color: aqua;
+}
+
+.diceRollSect > h1{
+    text-align: center;
+
+}
+
+.dice-container{
+border: 1px solid rgb(150, 13, 114);
+display: flex;
+flex-direction: column;
+gap: 50px;
+
+}
+.colmn-1{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+
+}
+.colmn-2{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+.diceValue{
+
+    width: 200px;
+    height: 100px;
+    background-color: rgb(14, 72, 123);
+
+    /** Fonts **/
+    font-family: 'League Spartan';
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 26px;
+text-align: center;
+
+display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+letter-spacing: -0.466667px;
+
+color: #FFFFFF;
+}
+.valueBox{
+
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
+    padding: 10px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.emoji-dice {
+    font-size: 2em;
+position: absolute;
+left: 40%;
+bottom: 30%;
+  }
+
+.round-score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 26px;
+    text-align: center;
+    color: rgb(140, 149, 102);
+}
