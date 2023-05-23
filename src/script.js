@@ -7,25 +7,30 @@ let z = [
   "assets/dice-images/dice6.png",
 ];
 
-const secondGrid = document.querySelector(".grid");
+const grid1 = document.querySelector(".grid");
+const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
-const COL = 2;
-const ROW = 3;
-let dice = COL * ROW;
+let score;
 
 /**
  * Function to create grid
  */
 function createGrid() {
-  for (let i = 0; i < output.rows; i++) {
-    const row = document.createElement("tr");
-    for (let j = 0; j < output.cols; j++) {
-      const cell = document.createElement("td");
-      cell.classList.add("box");
-      row.appendChild(cell);
+  for (let numGrid = 1; numGrid <= 2; numGrid++) {
+    for (let i = 0; i < output.rows; i++) {
+      const row = document.createElement("tr");
+      for (let j = 0; j < output.cols; j++) {
+        const cell = document.createElement("td");
+        cell.classList.add("box");
+        row.appendChild(cell);
+      }
+      if (numGrid === 1) {
+        grid1.appendChild(row);
+      } else {
+        grid2.appendChild(row);
+      }
     }
-    grid.appendChild(row);
   }
 }
 
@@ -33,6 +38,10 @@ function createGrid() {
  * Function to roll the dice
  */
 function rollDice() {
+  //Show section
+  let diceRollSect = document.querySelector(".diceRollSect");
+  diceRollSect.style.visibility = "visible";
+
   // Generate random numbers for the dice images
   let x = Math.floor(Math.random() * z.length + 1);
   let y = Math.floor(Math.random() * z.length + 1);
@@ -51,7 +60,7 @@ function rollDice() {
 
   //Round Score
   let roundScore = document.getElementById("round-score");
-  let score = x * y;
+  score = x * y;
   roundScore.textContent = "Round Score: " + score;
 }
 
@@ -59,9 +68,10 @@ function rollDice() {
  * Function to color cell
  */
 function colorCell(event) {
-  if (dice > 0 && event.target.style.backgroundColor !== "red") {
-    event.target.style.backgroundColor = "red";
-    dice--;
+  if (score > 0 && event.target.style.backgroundColor !== "#A4529E") {
+    /*#012152*/
+    event.target.style.backgroundColor = "#A4529E";
+    score--;
   }
 }
 
@@ -69,9 +79,9 @@ function colorCell(event) {
  * Function to clear cell
  */
 function clearCell(event) {
-  if (event.target.style.backgroundColor === "red") {
+  if (event.target.style.backgroundColor === "#A4529E") {
     event.target.style.backgroundColor = "white";
-    dice++;
+    score++;
   }
 }
 
@@ -84,8 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
 var diceBtn = document.getElementById("dice-btn");
 diceBtn.addEventListener("click", rollDice);
 
-let grid = document.querySelector(".grid");
 //Add event listener to the click on the cell for coloring
-grid.addEventListener("click", colorCell);
+grid1.addEventListener("click", colorCell);
+grid2.addEventListener("click", colorCell);
+
 //Add an event listener to double click on the cell for clearing the color
-grid.addEventListener("dblclick", clearCell);
+grid1.addEventListener("dblclick", clearCell);
+grid2.addEventListener("dblclick", clearCell);
