@@ -10,6 +10,18 @@ main {
   margin: 60px;
 }
 
+header {
+  text-align: right;
+}
+
+header .leader-board-btn {
+  background: black;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-family: "Kristen ITC", serif;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 70px;
