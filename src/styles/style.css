@@ -32,6 +32,24 @@ h1 {
   justify-content: space-evenly;
 }
 
+.player-container form {
+  display: flex;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.player-container .name-player-img {
+  margin-right: 20px;
+}
+
+.player-container .name-player-label {
+  margin-right: 20px;
+}
+
+.player-container .name-player-edit {
+  display: block;
+}
+
 .grid,
 .grid-2 {
   display: grid;
