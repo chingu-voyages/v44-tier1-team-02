@@ -1,12 +1,27 @@
 body {
-  background-color: #d8969a;
+  background: url(../../assets/dice-images/background.jpg) center no-repeat,
+    #d8969a;
+  background-size: cover;
+  color: white;
+  font-family: "Kristen ITC", serif;
+}
+
+main {
+  margin: 60px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 70px;
 }
 
-.grid {
+.showGridSect {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.grid,
+.grid-2 {
   display: grid;
   gap: 0;
   width: 500px;
@@ -18,6 +33,19 @@ h1 {
   border: 1px solid black;
   height: 50px;
   width: 50px;
+}
+
+.dice-btn-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.diceRollSect {
+  visibility: hidden;
+  width: 500px;
+  height: 500px;
 }
 
 .diceRollSect > h1 {
@@ -48,7 +76,7 @@ h1 {
   background-color: rgb(14, 72, 123);
 
   /** Fonts **/
-  font-family: "League Spartan";
+  /*font-family: "League Spartan";*/
   font-style: normal;
   font-weight: 700;
   font-size: 50px;
@@ -80,16 +108,18 @@ img {
 }
 .emoji-dice {
   font-size: 2em;
-  position: absolute;
+  padding: 5px;
+  border-radius: 10px;
+  background: #012152;
+  /* position: absolute;
   left: 40%;
-  bottom: 30%;
+  bottom: 30%;*/
 }
 
 .round-score {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "League Spartan";
   font-style: normal;
   font-weight: 700;
   font-size: 50px;
