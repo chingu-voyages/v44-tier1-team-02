@@ -1,3 +1,27 @@
+
+/*VARIABLES*/
+let error = document.querySelector(".error-correct-container");
+let closeIcon = document.querySelector(".close-correct");
+
+/*ALERT POP UP FUNTION*/
+function addAlert(event){
+    if(colorCell.length == score + 1){
+      error.classList.remove("display");
+      }
+    }
+/*CLOSE ALERT BOX FUNCTION*/
+  function closeBox(event){
+      let closeGreen = document.querySelector(".error-correct-container");
+      closeGreen.classList.add("display");
+    }
+
+
+
+
+
+/*fUNCTIONS*/
+  closeIcon.addEventListener("click", closeBox);
+
 let z = [
   "assets/dice-images/dice1.png",
   "assets/dice-images/dice2.png",
@@ -101,3 +125,4 @@ grid2.addEventListener("click", colorCell);
 //Add an event listener to double click on the cell for clearing the color
 grid1.addEventListener("dblclick", clearCell);
 grid2.addEventListener("dblclick", clearCell);
+

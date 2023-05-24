@@ -1,3 +1,100 @@
+
+
+
+
+.tick-icon{
+    color: white;
+    font-size: 7rem;
+    font-weight: bold;
+    
+  }
+  
+  
+  
+  /*ERROR ALERT MESSAGE STYLES FOR CORRECT AND IN CORRECT*/
+  .error{
+    height: 150px;
+    width: 200px; 
+    border-radius: 50%;
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: white;
+    padding: 1.5rem;
+  }
+  
+  .tick{
+    padding: 1.5rem;
+  }
+  .error-message-correct{
+    background-color: rgb(14, 72, 123);
+    
+  }
+  .error-correct-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+   
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    padding: 2.5rem;
+    position: relative;
+    bottom: 1000px;
+    left: 650px;
+    background: url(../../assets/dice-images/background.jpg) center no-repeat,
+    #d8969a;
+  background-size: cover;
+    border: 2px solid rgb(150, 13, 114);
+    max-width: 500px;
+    
+  }
+  
+  
+  
+  
+  .close-correct{
+    height: 40px;
+    width: 35px;
+    padding: 0.1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    color:white;
+    align-self: flex-start;
+    cursor: pointer;
+  }
+  
+  .close-correct:hover{
+    border: 2px solid rgb(14, 72, 123);
+    color: rgb(14, 72, 123);
+    color: white;
+    border-radius: 20%;
+  }
+  
+  
+  .display{
+    display: none;
+  }
+  
+   /*STYLES FOR MOBILE WIDTHS*/
+  @media(min-width: 500px){
+    .error-correct-container{
+        flex-direction: row;
+    }
+  }
+  
+  
+  
+  
+
 body {
   background: url(../../assets/dice-images/background.jpg) center no-repeat,
     #d8969a;
@@ -157,3 +254,4 @@ img {
   text-align: center;
   color: rgb(140, 149, 102);
 }
+
