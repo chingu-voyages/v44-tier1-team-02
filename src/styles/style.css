@@ -1,10 +1,6 @@
- /*GLOBAL STYLES*/
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
+
 
 .tick-icon{
     color: white;
@@ -98,3 +94,164 @@
   
   
   
+
+body {
+  background: url(../../assets/dice-images/background.jpg) center no-repeat,
+    #d8969a;
+  background-size: cover;
+  color: white;
+  font-family: "Kristen ITC", serif;
+}
+
+main {
+  margin: 60px;
+}
+
+header {
+  text-align: right;
+}
+
+header .leader-board-btn {
+  background: black;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-family: "Kristen ITC", serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.showGridSect {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.player-container form {
+  display: flex;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.player-container .name-player-img {
+  margin-right: 20px;
+}
+
+.player-container .name-player-label {
+  margin-right: 20px;
+}
+
+.player-container .name-player-edit {
+  display: block;
+}
+
+.grid,
+.grid-2 {
+  display: grid;
+  gap: 0;
+  width: 500px;
+  place-items: center;
+  background-color: white;
+}
+
+.box {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
+.dice-btn-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.diceRollSect {
+  visibility: hidden;
+  width: 500px;
+  height: 500px;
+}
+
+.diceRollSect > h1 {
+  text-align: center;
+}
+
+.dice-container {
+  border: 1px solid rgb(150, 13, 114);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.colmn-1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+.colmn-2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+.diceValue {
+  width: 200px;
+  height: 100px;
+  background-color: rgb(14, 72, 123);
+
+  /** Fonts **/
+  /*font-family: "League Spartan";*/
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 26px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  letter-spacing: -0.466667px;
+
+  color: #ffffff;
+}
+.valueBox {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+
+  padding: 10px;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+.emoji-dice {
+  font-size: 2em;
+  padding: 5px;
+  border-radius: 10px;
+  background: #012152;
+  /* position: absolute;
+  left: 40%;
+  bottom: 30%;*/
+}
+
+.round-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 26px;
+  text-align: center;
+  color: rgb(140, 149, 102);
+}
+
