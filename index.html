@@ -1,19 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./src/styles/style.css">
-    <script src="./src/script.js" defer></script>
-    <title>grid error message alert</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/fonts/Kristen-ITC.ttf" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
 
-   
+    <title>Array Game</title>
+  </head>
+  <body>
+    <main>
+      <header><button class="leader-board-btn">Leader board</button></header>
+      <h1>Math Matrix</h1>
+      <!--Grid Section -->
+      <section class="showGridSect">
+        <div class="player-container">
+          <form>
+            <img
+              class="name-player-img"
+              src="assets/dice-images/avatar1.png"
+              alt="Avatar 1"
+            />
+            <div>
+              <label for="name-player-edit" class="name-player-label"
+                >Player name 1
+              </label>
+              <label class="name-player-score">Score:</label>
+              <input
+                class="name-player-edit"
+                type="edit"
+                placeholder="Type your name..."
+              />
+            </div>
+          </form>
+          <div class="grid"></div>
+        </div>
+        <div class="dice-btn-container">
+          <h2>V.C</h2>
+          <br />
+          <br />
+          <p>Roll The Dice</p>
+          <button id="dice-btn" class="emoji-dice">
+            <img
+              width="100px"
+              src="assets/dice-images/dice-button.jpg"
+              alt=""
+            />
+          </button>
+        </div>
+        <div class="player-container">
+          <form>
+            <img
+              class="name-player-img"
+              src="assets/dice-images/avatar2.jpg"
+              alt="Avatar 2"
+            />
+            <div>
+              <label for="name-player-edit" class="name-player-label"
+                >Player name 2
+              </label>
+              <label class="name-player-score">Score:</label>
+              <input
+                class="name-player-edit"
+                type="edit"
+                placeholder="Type your name..."
+              />
+            </div>
+          </form>
+          <div class="grid-2"></div>
+        </div>
+      </section>
 
-<!--CORRECT ERROR ALERT TO SHOW YOU HAD IT RIGHT-->
+      <!--Dice Roll Section -->
+      <section id="diceRoll" class="diceRollSect">
+        <div class="round-score">
+          <p id="round-score"></p>
+        </div>
+
+        <div class="dice-container">
+          <!--Dice 1-->
+          <div class="dice colmn-1">
+            <div class="valueBox">
+              <p id="diceValue1" class="diceValue"></p>
+            </div>
+
+            <img class="img1" src="assets/dice-images/dice1.png" />
+          </div>
+          <!----Dice 2-->
+          <div class="dice colmn-2">
+            <div class="valueBox">
+              <p id="diceValue2" class="diceValue"></p>
+            </div>
+
+            <img class="img2" src="assets/dice-images/dice6.png" />
+          </div>
+        </div>
+      </section>
+      
+      <!--CORRECT ERROR ALERT TO SHOW YOU HAD IT RIGHT-->
 
     <div class=" display error-correct-container">
         <div class="close-correct">X</div>
@@ -26,13 +112,8 @@
             <i class="tick-icon fa-sharp fa-solid fa-check"></i>
         </div>
     </div>
-
-
-
-
-   
-
-    
-    
-</body>
+    </main
+    <script src="./src/script.js"></script>
+  </body>
 </html>
+
