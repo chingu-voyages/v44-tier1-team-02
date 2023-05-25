@@ -1,4 +1,5 @@
 
+
 let error = document.querySelector(".error-correct-container");
 let closeIcon = document.querySelector(".close-correct");
 
@@ -15,3 +16,4 @@ function closeBox(event){
 }
 
 closeIcon.addEventListener("click", closeBox)
+
