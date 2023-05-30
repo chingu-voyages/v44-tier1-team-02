@@ -16,20 +16,29 @@ let score;
 /**
  * Function to create grid
  */
-function createGrid() {
-  for (let numGrid = 1; numGrid <= 2; numGrid++) {
-    for (let i = 0; i < output.rows; i++) {
-      const row = document.createElement("tr");
-      for (let j = 0; j < output.cols; j++) {
-        const cell = document.createElement("td");
-        cell.classList.add("box");
-        row.appendChild(cell);
-      }
-      if (numGrid === 1) {
-        grid1.appendChild(row);
-      } else {
-        grid2.appendChild(row);
-      }
+function createGrid(grid) {
+  let table = document.createElement("table");
+
+  for (let i = 0; i < output.rows; i++) {
+    const row = document.createElement("tr");
+    for (let j = 0; j < output.cols; j++) {
+      const cell = document.createElement("td");
+      cell.classList.add("box");
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+  grid.appendChild(table);
+}
+
+/**
+ * Function to set a non-erasable color for shapes from the previous round
+ */
+function setNonErasableCell() {
+  let cell = document.querySelectorAll(".grid td");
+  for (let i = 0; i < cell.length; i++) {
+    if (cell[i].style.backgroundColor === "rgb(164, 82, 158)") {
+      cell[i].setAttribute("painted", true);
     }
   }
 }
@@ -62,15 +71,22 @@ function rollDice() {
   let roundScore = document.getElementById("round-score");
   score = x * y;
   roundScore.textContent = "Round Score: " + score;
+
+  //Set a non-erasable color
+  setNonErasableCell();
 }
 
 /**
  * Function to color cell
  */
 function colorCell(event) {
-  if (score > 0 && event.target.style.backgroundColor !== "#A4529E") {
-    /*#012152*/
-    event.target.style.backgroundColor = "#A4529E";
+  if (
+    event.target.tagName.toLowerCase() === "td" &&
+    score > 0 &&
+    event.target.style.backgroundColor !== "rgb(164, 82, 158)"
+  ) {
+    //Painted cell
+    event.target.style.backgroundColor = "rgb(164, 82, 158)";
     score--;
   }
 }
@@ -79,7 +95,11 @@ function colorCell(event) {
  * Function to clear cell
  */
 function clearCell(event) {
-  if (event.target.style.backgroundColor === "#A4529E") {
+  event.preventDefault();
+  if (
+    event.target.style.backgroundColor === "rgb(164, 82, 158)" &&
+    event.target.getAttribute("painted") !== "true"
+  ) {
     event.target.style.backgroundColor = "white";
     score++;
   }
@@ -87,7 +107,8 @@ function clearCell(event) {
 
 //Create grid
 document.addEventListener("DOMContentLoaded", function () {
-  createGrid();
+  createGrid(grid1);
+  createGrid(grid2);
 });
 
 //Add event listener to the dice button
@@ -99,5 +120,5 @@ grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
 //Add an event listener to double click on the cell for clearing the color
-grid1.addEventListener("dblclick", clearCell);
-grid2.addEventListener("dblclick", clearCell);
+grid1.addEventListener("contextmenu", clearCell);
+grid2.addEventListener("contextmenu", clearCell);

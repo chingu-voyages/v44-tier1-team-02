@@ -59,6 +59,10 @@ h1 {
   background-color: white;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 .box {
   border: 1px solid black;
   height: 50px;
