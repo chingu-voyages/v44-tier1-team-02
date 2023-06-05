@@ -161,3 +161,16 @@ img {
   text-align: center;
   color: rgb(140, 149, 102);
 }
+
+.clear-animation {
+  animation: clear-animation 0.3s ease-in-out;
+}
+
+@keyframes clear-animation {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    background-color: white;
+  }
+}

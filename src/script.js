@@ -11,7 +11,7 @@ const grid1 = document.querySelector(".grid");
 const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
-let score;
+let score, startScore;
 
 /**
  * Function to create grid
@@ -69,7 +69,7 @@ function rollDice() {
 
   //Round Score
   let roundScore = document.getElementById("round-score");
-  score = x * y;
+  startScore = score = x * y;
   roundScore.textContent = "Round Score: " + score;
 
   //Set a non-erasable color
@@ -105,6 +105,27 @@ function clearCell(event) {
   }
 }
 
+//Clear grid for repainting
+function repaintGridAnimation() {
+  let cells = document.querySelectorAll(".grid td");
+
+  //Remove class with animation
+  cells.forEach((cell) => cell.classList.remove("clear-animation"));
+
+  //Add a class with animation and erase the filled cells in the current step
+  cells.forEach((cell, i) => {
+    setTimeout(() => {
+      cell.classList.add("clear-animation");
+      if (cell.getAttribute("painted") !== "true") {
+        cell.style.backgroundColor = "white";
+      }
+    }, i * 10);
+  });
+
+  //Set initial score
+  score = startScore;
+}
+
 //Create grid
 document.addEventListener("DOMContentLoaded", function () {
   createGrid(grid1);
@@ -119,6 +140,10 @@ diceBtn.addEventListener("click", rollDice);
 grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
-//Add an event listener to double click on the cell for clearing the color
+//Add an event listener to right click on the cell for clearing the color
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
+
+//Add an event listener to clear button to repaint grid with current dice roll
+let repaintBtn = document.querySelector(".repaint-btn");
+repaintBtn.addEventListener("click", repaintGridAnimation);
