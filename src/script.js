@@ -11,7 +11,8 @@ const grid1 = document.querySelector(".grid");
 const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
-let score;
+let score, startScore, diceRow, diceCol;
+let squareCell = [];
 
 /**
  * Function to create grid
@@ -64,12 +65,12 @@ function rollDice() {
   let num2 = document.getElementById("diceValue2");
 
   // Change the text content to a number
-  num1.textContent = x;
-  num2.textContent = y;
+  diceRow = num1.textContent = x;
+  diceCol = num2.textContent = y;
 
   //Round Score
   let roundScore = document.getElementById("round-score");
-  score = x * y;
+  startScore = score = x * y;
   roundScore.textContent = "Round Score: " + score;
 
   //Set a non-erasable color
@@ -85,9 +86,59 @@ function colorCell(event) {
     score > 0 &&
     event.target.style.backgroundColor !== "rgb(164, 82, 158)"
   ) {
-    //Painted cell
-    event.target.style.backgroundColor = "rgb(164, 82, 158)";
-    score--;
+    //Set the row and column of the selected cell
+    let activeCellRow = event.target.parentNode.rowIndex;
+    let activeCellCol = event.target.cellIndex;
+    let index;
+
+    //First cell
+    if (score === startScore) {
+      //Set row and column to draw
+      let activeRow = event.target.parentNode.rowIndex;
+      let activeCol = event.target.cellIndex;
+
+      //Clear array
+      squareCell.length = 0;
+
+      //Check if an array fits the grid
+      if (output.cols - activeCellCol < diceCol)
+        diceCol === output.cols - activeCellCol;
+      if (output.rows - activeCellRow < diceRow)
+        diceRow === output.rows - activeCellRow;
+
+      //Save the first square
+      for (let x = 0; x < diceRow; x++) {
+        for (let y = 0; y < diceCol; y++) {
+          index = (activeRow + x) * 10 + (activeCol + y);
+
+          squareCell.push(index);
+        }
+      }
+
+      //Save the second square
+      for (let x = 0; x < diceCol; x++) {
+        for (let y = 0; y < diceRow; y++) {
+          index = (activeRow + x) * 10 + (activeCol + y);
+          squareCell.push(index);
+        }
+      }
+
+      //Painted cell
+      event.target.style.backgroundColor = "rgb(164, 82, 158)";
+      score--;
+
+      //Clicked the next cell
+    } else {
+      //Calculate index
+      let index = activeCellRow * output.cols + activeCellCol;
+
+      //Check if a cell fits in a square
+      if (squareCell.includes(index)) {
+        //Painted cell
+        event.target.style.backgroundColor = "rgb(164, 82, 158)";
+        score--;
+      }
+    }
   }
 }
 
@@ -119,6 +170,6 @@ diceBtn.addEventListener("click", rollDice);
 grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
-//Add an event listener to double click on the cell for clearing the color
+//Add an event listener to right click on the cell for clearing the color
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
