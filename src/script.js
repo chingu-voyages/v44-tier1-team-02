@@ -1,7 +1,4 @@
 
-
-
-
 let z = [
   "assets/dice-images/dice1.png",
   "assets/dice-images/dice2.png",
