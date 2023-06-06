@@ -1,3 +1,7 @@
+
+
+
+
 let z = [
   "assets/dice-images/dice1.png",
   "assets/dice-images/dice2.png",
@@ -12,7 +16,6 @@ const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 let score;
-
 /**
  * Function to create grid
  */
@@ -47,7 +50,7 @@ function setNonErasableCell() {
  * Function to roll the dice
  */
 function rollDice() {
-  //Show section
+  // Show section
   let diceRollSect = document.querySelector(".diceRollSect");
   diceRollSect.style.visibility = "visible";
 
@@ -67,12 +70,12 @@ function rollDice() {
   num1.textContent = x;
   num2.textContent = y;
 
-  //Round Score
+  // Round Score
   let roundScore = document.getElementById("round-score");
   score = x * y;
   roundScore.textContent = "Round Score: " + score;
 
-  //Set a non-erasable color
+  // Set a non-erasable color
   setNonErasableCell();
 }
 
@@ -85,7 +88,7 @@ function colorCell(event) {
     score > 0 &&
     event.target.style.backgroundColor !== "rgb(164, 82, 158)"
   ) {
-    //Painted cell
+    // Painted cell
     event.target.style.backgroundColor = "rgb(164, 82, 158)";
     score--;
   }
@@ -105,20 +108,37 @@ function clearCell(event) {
   }
 }
 
-//Create grid
+// Create grid
 document.addEventListener("DOMContentLoaded", function () {
   createGrid(grid1);
   createGrid(grid2);
 });
 
-//Add event listener to the dice button
+// Add event listener to the dice button
 var diceBtn = document.getElementById("dice-btn");
 diceBtn.addEventListener("click", rollDice);
 
-//Add event listener to the click on the cell for coloring
+// Add event listener to the click on the cell for coloring
 grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
-//Add an event listener to double click on the cell for clearing the color
+// Add an event listener to double click on the cell for clearing the color
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
+
+// Added code from the 'origin/correct-alert' branch
+let error = document.querySelector(".error-correct-container");
+let closeIcon = document.querySelector(".close-correct");
+
+function addAlert(event) {
+  if (colorCell.length == score + 1) {
+    error.classList.remove("display");
+  }
+}
+
+function closeBox(event) {
+  let closeGreen = document.querySelector(".error-correct-container");
+  closeGreen.classList.add("display");
+}
+
+closeIcon.addEventListener("click", closeBox);
