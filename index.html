@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="./src/fonts/Kristen-ITC.ttf" />
     <link rel="stylesheet" href="./src/styles/style.css" />
 
+
     <title>Array Game</title>
   </head>
-  <body>
+  <body class="page1">
     <main>
-      <header><button class="leader-board-btn">Leader board</button></header>
+      <header>
+        <a href="leaderboard.html"><button class="leader-board-btn">
+          Leader board</button></a> 
+        
+      </header>
       <h1>Math Matrix</h1>
       <!--Grid Section -->
       <section class="showGridSect">
@@ -26,9 +31,9 @@
               <label for="name-player-edit" class="name-player-label"
                 >Player name 1
               </label>
-              <label class="name-player-score">Score:</label>
+              <label class="name-player-score1">Score:</label>
               <input
-                class="name-player-edit"
+                class="name-player-edit1"
                 type="edit"
                 placeholder="Type your name..."
               />
@@ -48,6 +53,11 @@
               alt=""
             />
           </button>
+          <br />
+          <br />
+          <br />
+          <!-- Re-Start button -->
+          <button class="btn restart">Restart?</button>
         </div>
         <div class="player-container">
           <form>
@@ -60,9 +70,9 @@
               <label for="name-player-edit" class="name-player-label"
                 >Player name 2
               </label>
-              <label class="name-player-score">Score:</label>
+              <label class="name-player-score2">Score:</label>
               <input
-                class="name-player-edit"
+                class="name-player-edit2"
                 type="edit"
                 placeholder="Type your name..."
               />
