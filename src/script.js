@@ -1,4 +1,3 @@
-
 let z = [
   "assets/dice-images/dice1.png",
   "assets/dice-images/dice2.png",
@@ -37,7 +36,7 @@ function createGrid(grid) {
 function setNonErasableCell() {
   let cell = document.querySelectorAll(".grid td");
   for (let i = 0; i < cell.length; i++) {
-    if (cell[i].style.backgroundColor === "rgb(164, 82, 158)") {
+    if (cell[i].classList.contains("colored")) {
       cell[i].setAttribute("painted", true);
     }
   }
@@ -81,12 +80,12 @@ function rollDice() {
  */
 function colorCell(event) {
   if (
-    event.target.tagName.toLowerCase() === "td" &&
+    event.target.tagName === "TD" &&
     score > 0 &&
-    event.target.style.backgroundColor !== "rgb(164, 82, 158)"
+    !event.target.classList.contains("colored")
   ) {
     // Painted cell
-    event.target.style.backgroundColor = "rgb(164, 82, 158)";
+    event.target.classList.add("colored");
     score--;
   }
 }
@@ -97,12 +96,22 @@ function colorCell(event) {
 function clearCell(event) {
   event.preventDefault();
   if (
-    event.target.style.backgroundColor === "rgb(164, 82, 158)" &&
+    event.target.classList.contains("colored") &&
     event.target.getAttribute("painted") !== "true"
   ) {
-    event.target.style.backgroundColor = "white";
+    event.target.classList.remove("colored");
     score++;
   }
+}
+
+/**
+ * Function to change color
+ */
+function changeColor(event) {
+  document.documentElement.style.setProperty(
+    "--color-cell",
+    event.target.value
+  );
 }
 
 // Create grid
@@ -139,3 +148,12 @@ function closeBox(event) {
 }
 
 closeIcon.addEventListener("click", closeBox);
+
+// Add default color
+let selectColor = document.querySelector(".change-color");
+selectColor.value = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-cell"
+);
+// Add event listener to select a color to draw
+selectColor.addEventListener("input", changeColor);
+selectColor.addEventListener("change", changeColor);
