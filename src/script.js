@@ -7,7 +7,6 @@ let z = [
   "assets/dice-images/dice6.png",
 ];
 
-
 const grid1 = document.querySelector(".grid");
 const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
@@ -15,7 +14,6 @@ const total = output.rows * output.cols;
 
 let score, startScore, diceRow, diceCol;
 let squareCell = [];
-
 
 /**
  * Function to create grid
@@ -127,7 +125,7 @@ function colorCell(event) {
       }
 
       //Painted cell
-      event.target.style.backgroundColor = "rgb(164, 82, 158)";
+      event.target.classList.add("colored");
       score--;
 
       //Clicked the next cell
@@ -138,15 +136,10 @@ function colorCell(event) {
       //Check if a cell fits in a square
       if (squareCell.includes(index)) {
         //Painted cell
-        event.target.style.backgroundColor = "rgb(164, 82, 158)";
+        event.target.classList.add("colored");
         score--;
       }
     }
-
-    // Painted cell
-    event.target.classList.add("colored");
-    score--;
-
   }
 }
 
@@ -164,7 +157,6 @@ function clearCell(event) {
   }
 }
 
-
 //Clear grid for repainting
 function repaintGridAnimation() {
   let cells = document.querySelectorAll(".grid td");
@@ -177,7 +169,7 @@ function repaintGridAnimation() {
     setTimeout(() => {
       cell.classList.add("clear-animation");
       if (cell.getAttribute("painted") !== "true") {
-        cell.style.backgroundColor = "white";
+        cell.classList.remove("colored");
       }
     }, i * 10);
   });
@@ -213,7 +205,6 @@ diceBtn.addEventListener("click", rollDice);
 grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
-
 //Add an event listener to right click on the cell for clearing the color
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
@@ -226,11 +217,8 @@ repaintBtn.addEventListener("click", repaintGridAnimation);
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
 
-
-
-
-// User can see a button in the game control pane 
-// to start a new game, which 
+// User can see a button in the game control pane
+// to start a new game, which
 // updates the Leaderboard, clears the grid, and starts a new game.
 
 //Restart button////////////////////////////////////////
@@ -241,36 +229,32 @@ grid2.addEventListener("contextmenu", clearCell);
 // }
 //  document.querySelector(".name-player-score").textContent="Score : " +Number(0);
 
-initialScore=0;
+initialScore = 0;
 // document.querySelector(".check").addEventListener("click",function(){
 // if(score===roundScore){
 //   updatedScore++
 // }
 // })
 
-
-
 // Event listener for restart button
-document.querySelector(".restart").addEventListener("click",function(){
-
+document.querySelector(".restart").addEventListener("click", function () {
   // sets the name input back to an empty value
-  document.querySelector(".name-player-edit1").value="";
-  document.querySelector(".name-player-edit2").value="";
+  document.querySelector(".name-player-edit1").value = "";
+  document.querySelector(".name-player-edit2").value = "";
 
-// sets the score back to 0
+  // sets the score back to 0
 
-  document.querySelector(".name-player-score1").textContent="Score : "+initialScore
-  document.querySelector(".name-player-score2").textContent="Score : "+initialScore
+  document.querySelector(".name-player-score1").textContent =
+    "Score : " + initialScore;
+  document.querySelector(".name-player-score2").textContent =
+    "Score : " + initialScore;
 
-// clears the grid
+  // clears the grid
 
-    document.querySelector(".grid1").style.backgroundColor = "white";
-    document.querySelector(".grid2").style.backgroundColor = "white";
-    // score++;
-
-})
-
-
+  document.querySelector(".grid1").style.backgroundColor = "white";
+  document.querySelector(".grid2").style.backgroundColor = "white";
+  // score++;
+});
 
 // updates the leaderboard
 // Added code from the 'origin/correct-alert' branch
@@ -298,5 +282,3 @@ selectColor.value = getComputedStyle(document.documentElement).getPropertyValue(
 // Add event listener to select a color to draw
 selectColor.addEventListener("input", changeColor);
 selectColor.addEventListener("change", changeColor);
-
-
