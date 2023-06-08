@@ -11,8 +11,10 @@ const grid1 = document.querySelector(".grid");
 const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
+
 let score, startScore, diceRow, diceCol;
 let squareCell = [];
+
 
 /**
  * Function to create grid
@@ -38,7 +40,7 @@ function createGrid(grid) {
 function setNonErasableCell() {
   let cell = document.querySelectorAll(".grid td");
   for (let i = 0; i < cell.length; i++) {
-    if (cell[i].style.backgroundColor === "rgb(164, 82, 158)") {
+    if (cell[i].classList.contains("colored")) {
       cell[i].setAttribute("painted", true);
     }
   }
@@ -48,7 +50,7 @@ function setNonErasableCell() {
  * Function to roll the dice
  */
 function rollDice() {
-  //Show section
+  // Show section
   let diceRollSect = document.querySelector(".diceRollSect");
   diceRollSect.style.visibility = "visible";
 
@@ -68,12 +70,12 @@ function rollDice() {
   diceRow = num1.textContent = x;
   diceCol = num2.textContent = y;
 
-  //Round Score
+  // Round Score
   let roundScore = document.getElementById("round-score");
   startScore = score = x * y;
   roundScore.textContent = "Round Score: " + score;
 
-  //Set a non-erasable color
+  // Set a non-erasable color
   setNonErasableCell();
 }
 
@@ -82,9 +84,9 @@ function rollDice() {
  */
 function colorCell(event) {
   if (
-    event.target.tagName.toLowerCase() === "td" &&
+    event.target.tagName === "TD" &&
     score > 0 &&
-    event.target.style.backgroundColor !== "rgb(164, 82, 158)"
+    !event.target.classList.contains("colored")
   ) {
     //Set the row and column of the selected cell
     let activeCellRow = event.target.parentNode.rowIndex;
@@ -139,6 +141,11 @@ function colorCell(event) {
         score--;
       }
     }
+
+    // Painted cell
+    event.target.classList.add("colored");
+    score--;
+
   }
 }
 
@@ -148,28 +155,99 @@ function colorCell(event) {
 function clearCell(event) {
   event.preventDefault();
   if (
-    event.target.style.backgroundColor === "rgb(164, 82, 158)" &&
+    event.target.classList.contains("colored") &&
     event.target.getAttribute("painted") !== "true"
   ) {
-    event.target.style.backgroundColor = "white";
+    event.target.classList.remove("colored");
     score++;
   }
 }
 
+
+//Clear grid for repainting
+function repaintGridAnimation() {
+  let cells = document.querySelectorAll(".grid td");
+
+  //Remove class with animation
+  cells.forEach((cell) => cell.classList.remove("clear-animation"));
+
+  //Add a class with animation and erase the filled cells in the current step
+  cells.forEach((cell, i) => {
+    setTimeout(() => {
+      cell.classList.add("clear-animation");
+      if (cell.getAttribute("painted") !== "true") {
+        cell.style.backgroundColor = "white";
+      }
+    }, i * 10);
+  });
+
+  //Set initial score
+  score = startScore;
+}
+
 //Create grid
+
+/**
+ * Function to change color
+ */
+function changeColor(event) {
+  document.documentElement.style.setProperty(
+    "--color-cell",
+    event.target.value
+  );
+}
+
+// Create grid
+
 document.addEventListener("DOMContentLoaded", function () {
   createGrid(grid1);
   createGrid(grid2);
 });
 
-//Add event listener to the dice button
+// Add event listener to the dice button
 var diceBtn = document.getElementById("dice-btn");
 diceBtn.addEventListener("click", rollDice);
 
-//Add event listener to the click on the cell for coloring
+// Add event listener to the click on the cell for coloring
 grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
+
 
 //Add an event listener to right click on the cell for clearing the color
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
+
+//Add an event listener to clear button to repaint grid with current dice roll
+let repaintBtn = document.querySelector(".repaint-btn");
+repaintBtn.addEventListener("click", repaintGridAnimation);
+
+// Add an event listener to double click on the cell for clearing the color
+grid1.addEventListener("contextmenu", clearCell);
+grid2.addEventListener("contextmenu", clearCell);
+
+// Added code from the 'origin/correct-alert' branch
+let error = document.querySelector(".error-correct-container");
+let closeIcon = document.querySelector(".close-correct");
+
+function addAlert(event) {
+  if (colorCell.length == score + 1) {
+    error.classList.remove("display");
+  }
+}
+
+function closeBox(event) {
+  let closeGreen = document.querySelector(".error-correct-container");
+  closeGreen.classList.add("display");
+}
+
+closeIcon.addEventListener("click", closeBox);
+
+// Add default color
+let selectColor = document.querySelector(".change-color");
+selectColor.value = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-cell"
+);
+// Add event listener to select a color to draw
+selectColor.addEventListener("input", changeColor);
+selectColor.addEventListener("change", changeColor);
+
