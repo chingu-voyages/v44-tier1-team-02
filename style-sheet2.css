@@ -1,114 +1,99 @@
-/* .background-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.1s ease;
-}
-
-.content-container {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 20px;
-} */
 
 
-/*
-.owl-character {
-  /* Styles for owl character */
 
-/* .narration-text {
-  /* Styles for narration text */
-
-/* Responsive styles */
-/* @media screen and (max-width: 768px) {
-  .background-image {
-    object-position: center top;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .background-image {
-    object-position: center;
-  }
-} */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Bubblegum+Sans&display=swap');
 
 
-  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Bubblegum+Sans&display=swap');
-
-
-body{
-  padding:0;
+body {
+  padding: 0;
   margin: 0;
 
 }
-h1{
+
+h1 {
   font-family: 'Bangers', cursive;
 
 }
-p{
+
+p {
   font-family: 'Bubblegum Sans', cursive;
 }
-.starting-page{
+
+.starting-page {
   /* display: flex; */
 }
+
 .content-container {
   background-image: url("/assets/Story-page/deforestation_img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   text-align: center;
-  /* padding: 20px; */
-  border: 5px solid red;
+  padding: 20px;
+  /* border: 5px solid red; */
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+#temp{
+  background-image: url("/assets/Story-page/temp_rising.jpg");
+}
+#desert{
+background-image: url("/assets/Story-page/desert_img.jpg");
+}
+#animals{
+  background-image: url("/assets/Story-page/animals_affected.jpg");
 }
 
-.Narrator{
+.Narrator {
   width: 800px;
-  height: 800px;
+  height: 700px;
   border: 10px solid black;
   display: flex;
 }
-.quote{
-  border: 5px solid pink;
+
+.quote {
+  /* border: 5px solid pink; */
+  width: 400px;
+  height: 300px;
   width: 50%;
 
   background-image: url("/assets/Story-page/qoute_img.png");
   background-repeat: no-repeat;
-  /* background-size: cover;
-  background-position: center; */
   background-size: 400px 300px;
+  /** positioning h1 quote **/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 
 }
-.owl-character{
-width: 50%;
-height: 100%;
-border: 10px solid white;
- /*positioning**/
- display: flex;
- flex-direction: column;
-   flex-wrap: wrap;
-   align-content: center;
-   justify-content: center;
-   align-items: baseline;
+
+.quote>h1 {
+  font-size: 48px;
+
 }
 
-.owl-character > img{
+.owl-character {
+  width: 50%;
+  height: 100%;
+  /* border: 10px solid white; */
+  /*positioning**/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.owl-character>img {
   width: 500px;
   height: 400px;
 
 }
-
