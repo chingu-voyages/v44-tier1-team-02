@@ -51,7 +51,7 @@ background-image: url("/assets/Story-page/desert_img.jpg");
 .Narrator {
   width: 800px;
   height: 700px;
-  border: 10px solid black;
+  /* border: 10px solid black; */
   display: flex;
 }
 
@@ -97,3 +97,22 @@ background-image: url("/assets/Story-page/desert_img.jpg");
   height: 400px;
 
 }
+
+/** Animate character **/
+.owl-character img {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+
+
+
+
