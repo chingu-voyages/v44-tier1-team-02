@@ -9,7 +9,7 @@ let z = [
 
 const grid1 = document.querySelector(".grid");
 const grid2 = document.querySelector(".grid-2");
-const output = { rows: 10, cols: 10 };
+let output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 
 let score, startScore, diceRow, diceCol;
@@ -103,14 +103,14 @@ function colorCell(event) {
 
       //Check if an array fits the grid
       if (output.cols - activeCellCol < diceCol)
-        diceCol === output.cols - activeCellCol;
+        diceCol = output.cols - activeCellCol;
       if (output.rows - activeCellRow < diceRow)
-        diceRow === output.rows - activeCellRow;
+        diceRow = output.rows - activeCellRow;
 
       //Save the first square
       for (let x = 0; x < diceRow; x++) {
         for (let y = 0; y < diceCol; y++) {
-          index = (activeRow + x) * 10 + (activeCol + y);
+          index = (activeRow + x) * output.rows + (activeCol + y);
 
           squareCell.push(index);
         }
@@ -119,7 +119,7 @@ function colorCell(event) {
       //Save the second square
       for (let x = 0; x < diceCol; x++) {
         for (let y = 0; y < diceRow; y++) {
-          index = (activeRow + x) * 10 + (activeCol + y);
+          index = (activeRow + x) * output.rows + (activeCol + y);
           squareCell.push(index);
         }
       }
@@ -188,6 +188,31 @@ function changeColor(event) {
     "--color-cell",
     event.target.value
   );
+}
+
+/**
+ * Function to change grid size
+ */
+function changeSizeGrid(event) {
+  event.preventDefault();
+  let changeHeight = document.querySelector(".change-grid-height");
+  let changeWidth = document.querySelector(".change-grid-width");
+  let tables = document.querySelectorAll("table");
+
+  //Delete previous tables
+  tables.forEach((table) => table.remove());
+
+  //Change the number of columns, rows and cell size
+  output.rows = changeHeight.value;
+  output.cols = changeWidth.value;
+  document.documentElement.style.setProperty(
+    "--size-cell",
+    Math.round(500 / changeWidth.value) + "px"
+  );
+
+  //Create new grids
+  createGrid(grid1);
+  createGrid(grid2);
 }
 
 // Create grid
@@ -282,3 +307,7 @@ selectColor.value = getComputedStyle(document.documentElement).getPropertyValue(
 // Add event listener to select a color to draw
 selectColor.addEventListener("input", changeColor);
 selectColor.addEventListener("change", changeColor);
+
+// Add event listener to change grid size
+let changeSize = document.querySelector(".submit-change-grid-size");
+changeSize.addEventListener("submit", changeSizeGrid);

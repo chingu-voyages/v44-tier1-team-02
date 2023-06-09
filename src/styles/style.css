@@ -1,5 +1,6 @@
 :root {
   --color-cell: #a4529e;
+  --size-cell: 50px;
 }
 
 body {
@@ -79,8 +80,9 @@ table {
 
 .box {
   border: 1px solid black;
-  height: 50px;
-  width: 50px;
+  width: var(--size-cell);
+  height: var(--size-cell);
+  padding: 0;
 }
 
 .colored {
@@ -91,6 +93,18 @@ table {
   border-color: var(--color-cell);
   width: 25px;
   background: none;
+}
+
+input:invalid + span:after {
+  content: "✖";
+  padding-left: 5px;
+  color: red;
+}
+
+input:valid + span:after {
+  content: "✓";
+  padding-left: 5px;
+  color: green;
 }
 
 .dice-btn-container {
