@@ -1,4 +1,4 @@
-.background-container {
+/* .background-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -23,17 +23,18 @@
   z-index: 1;
   text-align: center;
   padding: 20px;
-}
+} */
 
+
+/*
 .owl-character {
   /* Styles for owl character */
-}
 
-.narration-text {
+/* .narration-text {
   /* Styles for narration text */
-}
+
 /* Responsive styles */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .background-image {
     object-position: center top;
   }
@@ -43,4 +44,71 @@
   .background-image {
     object-position: center;
   }
+} */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Bubblegum+Sans&display=swap');
+
+
+body{
+  padding:0;
+  margin: 0;
+
 }
+h1{
+  font-family: 'Bangers', cursive;
+
+}
+p{
+  font-family: 'Bubblegum Sans', cursive;
+}
+.starting-page{
+  /* display: flex; */
+}
+.content-container {
+  background-image: url("/assets/Story-page/deforestation_img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  /* padding: 20px; */
+  border: 5px solid red;
+  display: flex;
+}
+
+.Narrator{
+  width: 800px;
+  height: 800px;
+  border: 10px solid black;
+  display: flex;
+}
+.quote{
+  border: 5px solid pink;
+  width: 50%;
+
+  background-image: url("/assets/Story-page/qoute_img.png");
+  background-repeat: no-repeat;
+  /* background-size: cover;
+  background-position: center; */
+  background-size: 400px 300px;
+
+}
+.owl-character{
+width: 50%;
+height: 100%;
+border: 10px solid white;
+ /*positioning**/
+ display: flex;
+ flex-direction: column;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: center;
+   align-items: baseline;
+}
+
+.owl-character > img{
+  width: 500px;
+  height: 400px;
+
+}
+
