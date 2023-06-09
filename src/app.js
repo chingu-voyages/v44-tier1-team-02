@@ -1,3 +1,23 @@
+// page section
+// const sections = document.querySelectorAll('.content-container');
+
+// function showNextSection(index) {
+//   if (index >= sections.length) {
+//     return;
+//   }
+
+//   sections[index].classList.add('active');
+
+//   setTimeout(() => {
+//     sections[index].classList.remove('active');
+//     showNextSection(index + 1);
+//   }, 2000); // Adjust the duration (in milliseconds) for each section
+
+// }
+
+// showNextSection(0);
+
+//Text writing effect of quote
 const quotes = document.querySelectorAll('.quote');
 
 quotes.forEach((quote) => {
@@ -20,5 +40,6 @@ quotes.forEach((quote) => {
 });
 
 
-// character
+
+
 

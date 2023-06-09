@@ -8,7 +8,7 @@ let z = [
 ];
 
 
-const grid1 = document.querySelector(".grid");
+const grid1 = document.querySelector(".grid-1");
 const grid2 = document.querySelector(".grid-2");
 const output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
@@ -50,35 +50,35 @@ function setNonErasableCell() {
 /**
  * Function to roll the dice
  */
-function rollDice() {
-  // Show section
-  let diceRollSect = document.querySelector(".diceRollSect");
-  diceRollSect.style.visibility = "visible";
+// function rollDice() {
+//   // Show section
+//   let diceRollSect = document.querySelector(".diceRollSect");
+//   diceRollSect.style.visibility = "visible";
 
-  // Generate random numbers for the dice images
-  let x = Math.floor(Math.random() * z.length + 1);
-  let y = Math.floor(Math.random() * z.length + 1);
+//   // Generate random numbers for the dice images
+//   let x = Math.floor(Math.random() * z.length + 1);
+//   let y = Math.floor(Math.random() * z.length + 1);
 
-  // Set the source attribute of the dice images
-  document.querySelector(".img1").setAttribute("src", z[x - 1]);
-  document.querySelector(".img2").setAttribute("src", z[y - 1]);
+//   // Set the source attribute of the dice images
+//   document.querySelector(".img1").setAttribute("src", z[x - 1]);
+//   document.querySelector(".img2").setAttribute("src", z[y - 1]);
 
-  // Show the Number of the displayed Dice
-  let num1 = document.getElementById("diceValue1");
-  let num2 = document.getElementById("diceValue2");
+//   // Show the Number of the displayed Dice
+//   let num1 = document.getElementById("diceValue1");
+//   let num2 = document.getElementById("diceValue2");
 
-  // Change the text content to a number
-  diceRow = num1.textContent = x;
-  diceCol = num2.textContent = y;
+//   // Change the text content to a number
+//   diceRow = num1.textContent = x;
+//   diceCol = num2.textContent = y;
 
-  // Round Score
-  let roundScore = document.getElementById("round-score");
-  startScore = score = x * y;
-  roundScore.textContent = "Round Score: " + score;
+//   // Round Score
+//   let roundScore = document.getElementById("round-score");
+//   startScore = score = x * y;
+//   roundScore.textContent = "Round Score: " + score;
 
-  // Set a non-erasable color
-  setNonErasableCell();
-}
+//   // Set a non-erasable color
+//   setNonErasableCell();
+// }
 
 /**
  * Function to color cell
@@ -163,6 +163,9 @@ function clearCell(event) {
     score++;
   }
 }
+
+
+
 
 
 //Clear grid for repainting

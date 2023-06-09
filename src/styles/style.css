@@ -3,18 +3,18 @@
 }
 
 body {
-  background: url(../../assets/dice-images/background.jpg) center no-repeat,
+  background: url(/assets/Story-page/desert_img.jpg) center no-repeat,
     #d8969a;
   background-size: cover;
   color: white;
   font-family: "Kristen ITC", serif;
 }
 
-.tick-icon {
+/* .tick-icon {
   color: white;
   font-size: 7rem;
   font-weight: bold;
-}
+} */
 
 
 main {
@@ -38,10 +38,63 @@ h1 {
   margin-bottom: 70px;
 }
 
-.showGridSect {
+
+/** Game board Section begins **/
+.game_board{
   display: flex;
-  justify-content: space-evenly;
 }
+
+/*Grid*/
+.showGridSect{
+  border: 2px solid rgb(127, 198, 21);
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+.player-info{
+  display: flex;
+}
+/** Grid Section Ends **/
+
+
+/** Owl Character ***/
+.owl-character {
+  width: 50%;
+  height: 100%;
+  /* border: 10px solid white; */
+  /*positioning**/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.owl-character>img {
+  width: 500px;
+  height: 400px;
+
+}
+
+/** Animate character **/
+.owl-character img {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
 
 .player-container form {
   display: flex;
@@ -65,7 +118,7 @@ h1 {
   display: block;
 }
 
-.grid,
+.grid-1,
 .grid-2 {
   display: grid;
   gap: 0;
@@ -331,7 +384,7 @@ img {
     font-weight: bolder;
     color: #3a3d51;
   }
-=======
+
 .clear-animation {
   animation: clear-animation 0.3s ease-in-out;
 }
@@ -347,7 +400,7 @@ img {
   font-size: 7rem;
   font-weight: bold;
 }
-
+  }}
 /*ERROR ALERT MESSAGE STYLES FOR CORRECT AND IN CORRECT*/
 .error {
   height: 150px;

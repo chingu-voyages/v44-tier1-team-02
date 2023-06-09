@@ -19,100 +19,89 @@
   </head>
   <body class="page1">
     <main>
-      <header>
+      <!-- <header>
         <a href="leaderboard.html"><button class="leader-board-btn">
-          Leader board</button></a> 
-        
-      </header>
-      <h1>Math Matrix</h1>
+          Leader board</button></a>
+
+      </header> -->
+      <!-- <h1>Math Matrix</h1>
       <input type="color" class="change-color" />
-      <label for="change-color">Choose color</label>
+      <label for="change-color">Choose color</label> -->
 
-      <!--Grid Section -->
-      <section class="showGridSect">
-        <div class="player-container">
-          <form>
-            <img
-              class="name-player-img"
-              src="assets/dice-images/avatar1.png"
-              alt="Avatar 1"
-            />
-            <div>
-              <label for="name-player-edit" class="name-player-label"
-                >Player name 1
-              </label>
-              <label class="name-player-score1">Score:</label>
-              <input
-                class="name-player-edit1"
-                type="edit"
-                placeholder="Type your name..."
-              />
-            </div>
-          </form>
-          <div class="grid"></div>
-        </div>
-        <div class="dice-btn-container">
-          <h2>V.C</h2>
-          <br />
-          <br />
-          <p>Roll The Dice</p>
-          <button id="dice-btn" class="emoji-dice">
-            <img
-              width="100px"
-              src="assets/dice-images/dice-button.jpg"
-              alt=""
-            />
-          </button>
+      <!--Game Board Section -->
+      <section class="game_board">
 
-          <br />
-          <br />
-          <br />
-          <!-- Re-Start button -->
-          <button class="btn restart">Restart?</button>
- 
-          <button class="repaint-btn">Clear</button>
+        <!--Grid number 1-->
+       <div class="showGridSect" id="grid_sec_1">
+        <article class="player-info">
+          <img>
+          <div class="score-board">
+            <h2>Player Name</h2>
+            <P>Score:<span>4</span></P>
+          </div>
+        </article>
+          <div class="grid-1"></div>
+          <figcaption>Plantation Field</figcaption>
+      </div>
 
-        </div>
-        <div class="player-container">
-          <form>
-            <img
-              class="name-player-img"
-              src="assets/dice-images/avatar2.jpg"
-              alt="Avatar 2"
-            />
-            <div>
-              <label for="name-player-edit" class="name-player-label"
-                >Player name 2
-              </label>
-              <label class="name-player-score2">Score:</label>
-              <input
-                class="name-player-edit2"
-                type="edit"
-                placeholder="Type your name..."
-              />
-            </div>
-          </form>
+      <!--Grid number 1-->
+      <div class="showGridSect" id="grid_sec_2">
+        <article class="player-info">
+          <img>
+          <div class="score-board">
+            <h2>Player Name</h2>
+            <P>Score:<span>4</span></P>
+          </div>
+        </article>
           <div class="grid-2"></div>
-        </div>
+          <figcaption>Plantation Field</figcaption>
+      </div>
+
       </section>
 
-      <!--Dice Roll Section -->
-      <section id="diceRoll" class="diceRollSect">
+
+
+      <!-- <section class="showGridSect">
+
+        <div class="grid-2"></div>
+    </section> -->
+
+
+<!--
+      <div class="dice-btn-container">
+        <h2>V.C</h2>
+        <br />
+        <br />
+        <p>Roll The Dice</p>
+        <button id="dice-btn" class="emoji-dice">
+          <img
+            width="100px"
+            src="assets/dice-images/dice-button.jpg"
+            alt=""
+          />
+        </button>
+      </div>
+  Re-Start button -->
+ <!-- <button class="btn restart">Restart?</button>
+
+ <button class="repaint-btn">Clear</button>
+      Dice Roll Section -->
+      <!-- <section id="diceRoll" class="diceRollSect">
         <div class="round-score">
           <p id="round-score"></p>
         </div>
 
         <div class="dice-container">
-          <!--Dice 1-->
-          <div class="dice colmn-1">
+          Dice 1-->
+          <!-- <div class="dice colmn-1">
             <div class="valueBox">
               <p id="diceValue1" class="diceValue"></p>
             </div>
 
             <img class="img1" src="assets/dice-images/dice1.png" />
-          </div>
+          </div> -->
           <!----Dice 2-->
-          <div class="dice colmn-2">
+          <!-- <div class="dice colmn-2">
             <div class="valueBox">
               <p id="diceValue2" class="diceValue"></p>
             </div>
@@ -120,11 +109,11 @@
             <img class="img2" src="assets/dice-images/dice6.png" />
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!--CORRECT ERROR ALERT TO SHOW YOU HAD IT RIGHT-->
 
-      <div class="display error-correct-container">
+      <!-- <div class="display error-correct-container">
         <div class="close-correct">X</div>
         <div class="error error-message-correct">
           <p>Array answer was correct</p>
@@ -133,7 +122,7 @@
         <div class="tick">
           <i class="tick-icon fa-sharp fa-solid fa-check"></i>
         </div>
-      </div>
+      </div> -->
     </main>
     <script src="./src/script.js"></script>
   </body>

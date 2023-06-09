@@ -19,7 +19,7 @@ p {
   font-family: 'Bubblegum Sans', cursive;
 }
 
-.starting-page {
+.story-page {
   /* display: flex; */
 }
 
@@ -113,6 +113,13 @@ background-image: url("/assets/Story-page/desert_img.jpg");
 }
 
 
+/* .content-container {
+  display: none;
+}
+
+.active {
+  display: block;
+} */
 
 
 
