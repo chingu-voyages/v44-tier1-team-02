@@ -14,19 +14,52 @@
     />
     <link rel="stylesheet" href="./src/styles/style.css" />
 
-
     <title>Array Game</title>
   </head>
   <body class="page1">
     <main>
       <header>
-        <a href="leaderboard.html"><button class="leader-board-btn">
-          Leader board</button></a> 
-        
+        <a href="leaderboard.html"
+          ><button class="leader-board-btn">Leader board</button></a
+        >
       </header>
       <h1>Math Matrix</h1>
-      <input type="color" class="change-color" />
-      <label for="change-color">Choose color</label>
+
+      <form>
+        <input type="color" class="change-color" />
+        <label for="change-color">Choose color</label>
+        <input
+          type="number"
+          class="change-grid-height"
+          min="10"
+          max="30"
+          list="default-grid-numbers"
+          required
+        />
+        <span class="validity"></span>
+        <label for="change-grid-height">Grid height</label>
+        <input
+          type="number"
+          class="change-grid-width"
+          min="10"
+          max="30"
+          list="default-grid-numbers"
+          required
+        />
+        <span class="validity"></span>
+        <datalist id="default-grid-numbers">
+          <option value="10"></option>
+          <option value="20"></option>
+          <option value="30"></option>
+        </datalist>
+
+        <label for="change-grid-width">Grid width</label>
+        <input
+          type="submit"
+          class="submit-change-grid-size"
+          value="Change Size"
+        />
+      </form>
 
       <!--Grid Section -->
       <section class="showGridSect">
@@ -69,9 +102,8 @@
           <br />
           <!-- Re-Start button -->
           <button class="btn restart">Restart?</button>
- 
-          <button class="repaint-btn">Clear</button>
 
+          <button class="repaint-btn">Clear</button>
         </div>
         <div class="player-container">
           <form>

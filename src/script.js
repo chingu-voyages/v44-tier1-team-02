@@ -7,15 +7,13 @@ let z = [
   "assets/dice-images/dice6.png",
 ];
 
-
 const grid1 = document.querySelector(".grid");
 const grid2 = document.querySelector(".grid-2");
-const output = { rows: 10, cols: 10 };
+let output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 
 let score, startScore, diceRow, diceCol;
 let squareCell = [];
-
 
 /**
  * Function to create grid
@@ -105,14 +103,14 @@ function colorCell(event) {
 
       //Check if an array fits the grid
       if (output.cols - activeCellCol < diceCol)
-        diceCol === output.cols - activeCellCol;
+        diceCol = output.cols - activeCellCol;
       if (output.rows - activeCellRow < diceRow)
-        diceRow === output.rows - activeCellRow;
+        diceRow = output.rows - activeCellRow;
 
       //Save the first square
       for (let x = 0; x < diceRow; x++) {
         for (let y = 0; y < diceCol; y++) {
-          index = (activeRow + x) * 10 + (activeCol + y);
+          index = (activeRow + x) * output.rows + (activeCol + y);
 
           squareCell.push(index);
         }
@@ -121,13 +119,13 @@ function colorCell(event) {
       //Save the second square
       for (let x = 0; x < diceCol; x++) {
         for (let y = 0; y < diceRow; y++) {
-          index = (activeRow + x) * 10 + (activeCol + y);
+          index = (activeRow + x) * output.rows + (activeCol + y);
           squareCell.push(index);
         }
       }
 
       //Painted cell
-      event.target.style.backgroundColor = "rgb(164, 82, 158)";
+      event.target.classList.add("colored");
       score--;
 
       //Clicked the next cell
@@ -138,15 +136,10 @@ function colorCell(event) {
       //Check if a cell fits in a square
       if (squareCell.includes(index)) {
         //Painted cell
-        event.target.style.backgroundColor = "rgb(164, 82, 158)";
+        event.target.classList.add("colored");
         score--;
       }
     }
-
-    // Painted cell
-    event.target.classList.add("colored");
-    score--;
-
   }
 }
 
@@ -164,7 +157,6 @@ function clearCell(event) {
   }
 }
 
-
 //Clear grid for repainting
 function repaintGridAnimation() {
   let cells = document.querySelectorAll(".grid td");
@@ -177,7 +169,7 @@ function repaintGridAnimation() {
     setTimeout(() => {
       cell.classList.add("clear-animation");
       if (cell.getAttribute("painted") !== "true") {
-        cell.style.backgroundColor = "white";
+        cell.classList.remove("colored");
       }
     }, i * 10);
   });
@@ -198,6 +190,31 @@ function changeColor(event) {
   );
 }
 
+/**
+ * Function to change grid size
+ */
+function changeSizeGrid(event) {
+  event.preventDefault();
+  let changeHeight = document.querySelector(".change-grid-height");
+  let changeWidth = document.querySelector(".change-grid-width");
+  let tables = document.querySelectorAll("table");
+
+  //Delete previous tables
+  tables.forEach((table) => table.remove());
+
+  //Change the number of columns, rows and cell size
+  output.rows = changeHeight.value;
+  output.cols = changeWidth.value;
+  document.documentElement.style.setProperty(
+    "--size-cell",
+    Math.round(500 / changeWidth.value) + "px"
+  );
+
+  //Create new grids
+  createGrid(grid1);
+  createGrid(grid2);
+}
+
 // Create grid
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -213,7 +230,6 @@ diceBtn.addEventListener("click", rollDice);
 grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
-
 //Add an event listener to right click on the cell for clearing the color
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
@@ -226,11 +242,8 @@ repaintBtn.addEventListener("click", repaintGridAnimation);
 grid1.addEventListener("contextmenu", clearCell);
 grid2.addEventListener("contextmenu", clearCell);
 
-
-
-
-// User can see a button in the game control pane 
-// to start a new game, which 
+// User can see a button in the game control pane
+// to start a new game, which
 // updates the Leaderboard, clears the grid, and starts a new game.
 
 //Restart button////////////////////////////////////////
@@ -241,36 +254,32 @@ grid2.addEventListener("contextmenu", clearCell);
 // }
 //  document.querySelector(".name-player-score").textContent="Score : " +Number(0);
 
-initialScore=0;
+initialScore = 0;
 // document.querySelector(".check").addEventListener("click",function(){
 // if(score===roundScore){
 //   updatedScore++
 // }
 // })
 
-
-
 // Event listener for restart button
-document.querySelector(".restart").addEventListener("click",function(){
-
+document.querySelector(".restart").addEventListener("click", function () {
   // sets the name input back to an empty value
-  document.querySelector(".name-player-edit1").value="";
-  document.querySelector(".name-player-edit2").value="";
+  document.querySelector(".name-player-edit1").value = "";
+  document.querySelector(".name-player-edit2").value = "";
 
-// sets the score back to 0
+  // sets the score back to 0
 
-  document.querySelector(".name-player-score1").textContent="Score : "+initialScore
-  document.querySelector(".name-player-score2").textContent="Score : "+initialScore
+  document.querySelector(".name-player-score1").textContent =
+    "Score : " + initialScore;
+  document.querySelector(".name-player-score2").textContent =
+    "Score : " + initialScore;
 
-// clears the grid
+  // clears the grid
 
-    document.querySelector(".grid1").style.backgroundColor = "white";
-    document.querySelector(".grid2").style.backgroundColor = "white";
-    // score++;
-
-})
-
-
+  document.querySelector(".grid1").style.backgroundColor = "white";
+  document.querySelector(".grid2").style.backgroundColor = "white";
+  // score++;
+});
 
 // updates the leaderboard
 // Added code from the 'origin/correct-alert' branch
@@ -299,4 +308,6 @@ selectColor.value = getComputedStyle(document.documentElement).getPropertyValue(
 selectColor.addEventListener("input", changeColor);
 selectColor.addEventListener("change", changeColor);
 
-
+// Add event listener to change grid size
+let changeSize = document.querySelector(".submit-change-grid-size");
+changeSize.addEventListener("submit", changeSizeGrid);
