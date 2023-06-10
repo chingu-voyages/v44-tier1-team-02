@@ -112,6 +112,9 @@ function colorCell(event) {
 /**
  * Function to submit the answer
  */
+/**
+ * Function to submit the answer
+ */
 function submitAnswer() {
   // Calculate the total marked cells for the current player
   let totalMarkedCells;
@@ -138,14 +141,22 @@ function submitAnswer() {
       player2Score += diceRow * diceCol;
       document.getElementById("player-2-score").textContent = "Player 2 Score: " + player2Score;
     }
+
+    // Switch to the next player's turn
+    switchPlayerTurn();
   } else {
     // Incorrect answer
     alert("Sorry, your answer is incorrect.");
-  }
 
-  // Switch to the next player's turn
-  switchPlayerTurn();
+    // Enable the grid for marking
+    if (currentPlayer === 1) {
+      grid1.addEventListener("click", colorCell);
+    } else {
+      grid2.addEventListener("click", colorCell);
+    }
+  }
 }
+
 
 function switchPlayerTurn() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
