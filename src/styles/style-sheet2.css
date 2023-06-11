@@ -47,7 +47,9 @@ background-image: url("/assets/Story-page/desert_img.jpg");
 #animals{
   background-image: url("/assets/Story-page/animals_affected.jpg");
 }
-
+#welcome{
+  background-image: url("/assets/starting-page/forest-image.png");
+}
 .Narrator {
   width: 800px;
   height: 700px;
