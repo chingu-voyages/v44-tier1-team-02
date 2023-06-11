@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/fonts/Kristen-ITC.ttf" />
-    <link rel="stylesheet" href="../styles/style.css" />
 
-    <title>Array Game</title>
-  </head>
-  <body class="page1">
-    <main>
-      <header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/fonts/Kristen-ITC.ttf" />
+  <link rel="stylesheet" href="../styles/style.css" />
 
-        <a href="leaderboard.html"><button class="leader-board-btn">
-          Leader board</button></a>
-      </header>
-      <h1>Math Matrix</h1>
-      <!-- <input type="color" class="change-color" />
+  <title>Array Game</title>
+</head>
+
+<body class="page1">
+
+  <!-- Header section begins-->
+  <header class="header">
+  <!--About us -->
+  <div class="header-left">
+ <!--Logo -->
+ <div class="logo">
+  <img src="../assets/starting-page/owl-calculator-golden.png">
+</div>
+<div class="about-us header-link">
+  <a href="#">About Us</a>
+</div>
+
+  </div>
+
+  <!--Game info -->
+    <div class="game-info">
+      <div class="timer">
+        <button class="btn">
+          <img src="../assets/Other_images/timer_img.png">
+        </button>
+      </div>
+      <div class="header-link">
+        <a href="leaderboard.html">Leader board</a>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <!-- <input type="color" class="change-color" />
       <label for="change-color">Choose color</label> -->
 
- 
 
-      <!--Grid Section -->
-      <section class="showGridSect">
-        <!---Game Board-->
-        <div class="player-1">
-          <div class="scoreboard">
-            <figure>
-              <img
-              class="name-player-img"
-              src="../assets/dice-images/avatar1.png"
-              alt="Avatar 1"
-            />
 
-            </figure>
-            <figcaption>
-              <p id="player-1-score"></p>
-            </figcaption>
+    <!--Grid Section -->
+    <section class="showGridSect">
+      <!---Game Board-->
+      <div class="player-1">
+        <div class="scoreboard">
+          <figure>
+            <img class="name-player-img" src="../assets/dice-images/avatar1.png" alt="Avatar 1" />
 
-          </div>
-          <div class="grid-1"></div>
+          </figure>
+          <figcaption>
+            <p id="player-1-score"></p>
+          </figcaption>
+
         </div>
-        <div class="player-2">
-          <div class="score-board">
-            <figure>
-              <img
-              class="name-player-img"
-              src="../assets/dice-images/avatar2.jpg"
-              alt="Avatar 1"
-            />
-            </figure>
-            <figcaption>
-              <p id="player-2-score"></p>
-            </figcaption>
+        <div class="grid-1"></div>
+      </div>
+      <div class="player-2">
+        <div class="score-board">
+          <figure>
+            <img class="name-player-img" src="../assets/dice-images/avatar2.jpg" alt="Avatar 1" />
+          </figure>
+          <figcaption>
+            <p id="player-2-score"></p>
+          </figcaption>
 
-          </div>
-          <div class="grid-2"></div>
         </div>
-      </section>
+        <div class="grid-2"></div>
+      </div>
+    </section>
 
 
-      <!-- <div class="player-container">
+    <!-- <div class="player-container">
         <form>
 
           <div>
@@ -78,7 +94,7 @@
         </form>
 
       </div> -->
-      <!-- <div class="player-container">
+    <!-- <div class="player-container">
         <form>
           <img
             class="name-player-img"
@@ -100,81 +116,83 @@
 
       </div> -->
 
-      <div class="dice-btn-container">
-        <h2>V.C</h2>
-        <br />
-        <br />
-        <p>Roll The Dice</p>
-        <button id="dice-btn" class="emoji-dice">
-          <img
-            width="100px"
-            src="../assets/dice-images/dice-button.jpg"
-            alt=""
-          />
-        </button>
+    <div class="dice-btn-container">
+      <h2>V.C</h2>
+      <br />
+      <br />
+      <p>Roll The Dice</p>
+      <button id="dice-btn" class="emoji-dice">
+        <img width="100px" src="../assets/dice-images/dice-button.jpg" alt="" />
+      </button>
 
-        <br />
-        <br />
-        <br />
+      <br />
+      <br />
+      <br />
 
 
 
+    </div>
+
+
+    <!--Dice Roll Section -->
+    <section id="diceRoll" class="diceRollSect">
+      <div class="round-score">
+        <p id="round-score"></p>
       </div>
 
-
-      <!--Dice Roll Section -->
-      <section id="diceRoll" class="diceRollSect">
-        <div class="round-score">
-          <p id="round-score"></p>
-        </div>
-
-        <div class="dice-container">
-          <!--Dice 1-->
-          <div class="dice colmn-1">
-            <div class="valueBox">
-              <p id="diceValue1" class="diceValue"></p>
-            </div>
-
-            <img class="img1" src="../assets/dice-images/dice1.png" />
+      <div class="dice-container">
+        <!--Dice 1-->
+        <div class="dice colmn-1">
+          <div class="valueBox">
+            <p id="diceValue1" class="diceValue"></p>
           </div>
-          <!----Dice 2-->
-          <div class="dice colmn-2">
-            <div class="valueBox">
-              <p id="diceValue2" class="diceValue"></p>
-            </div>
 
-            <img class="img2" src="../assets/dice-images/dice6.png" />
-          </div>
+          <img class="img1" src="../assets/dice-images/dice1.png" />
         </div>
-      </section>
+        <!----Dice 2-->
+        <div class="dice colmn-2">
+          <div class="valueBox">
+            <p id="diceValue2" class="diceValue"></p>
+          </div>
 
-      <section class="control-buttons">
-
-      </section>
-
-
-      <div class="play-btn">
-        <button id="submit-btn">Submit</button>
-        <button id="play-button">Play</button>
-        <button class="btn restart">Restart?</button>
-        <button class="repaint-btn">Clear</button>
+          <img class="img2" src="../assets/dice-images/dice6.png" />
+        </div>
       </div>
+    </section>
+
+    <section class="control-buttons">
+
+    </section>
+
+
+    <div class="play-btn">
+      <button id="submit-btn">Submit</button>
+
+      <button class="btn restart">Restart?</button>
+      <button class="repaint-btn">Clear</button>
+    </div>
 
 
 
-      <!--CORRECT ERROR ALERT TO SHOW YOU HAD IT RIGHT-->
+    <!--CORRECT ERROR ALERT TO SHOW YOU HAD IT RIGHT-->
 
-      <!-- <div class="display error-correct-container">
-        <div class="close-correct">X</div>
-        <div class="error error-message-correct">
-          <p>Array answer was correct</p>
-          <p>Congratulations</p>
-        </div>
-        <div class="tick">
-          <i class="tick-icon fa-sharp fa-solid fa-check"></i>
-        </div>
-      </div> -->
-    </main>
-    <script src="../scripts/script.js"></script>
-  </body>
+    <div class="display error-correct-container">
+      <div class="close-correct">X</div>
+      <div class="error error-message-correct">
+        <p>Array answer was correct</p>
+        <p>Congratulations</p>
+      </div>
+      <div class="tick">
+        <i class="tick-icon fa-sharp fa-solid fa-check"></i>
+      </div>
+    </div>
+  </main>
+  <script src="../scripts/script.js"></script>
+</body>
+
 </html>
+
+
+<!---
+  <a href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by smalllikeart - Flaticon</a>
+-->

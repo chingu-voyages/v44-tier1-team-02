@@ -1,37 +1,172 @@
+
+/** BROWSER DEFAULT STYLE RESET **/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** BROWSER DEFAULT STYLE RESET ENDS **/
+
+
+/****** PAGE STYLING BEGINS *******/
+
+/** GlOBAL VARIABLES **/
 :root {
   --color-cell: #a4529e;
   --size-cell: 50px;
 }
-
+/** GLOBAL STYLE **/
 body {
   background: url(../assets/game-background-1.jpg) center no-repeat,
     #d8969a;
   background-size: cover;
   color: white;
-  font-family: "Kristen ITC", serif;
+
 }
 
-.tick-icon {
-  color: white;
-  font-size: 7rem;
-  font-weight: bold;
+/**   BUTTONS **/
+
+
+/** HEADER STYLING BEGINS **/
+.header{
+  border: 1px solid red;
+  
 }
+
+/** HEADER STYLING BEGINS **/
+
+.header{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-content: center;
+justify-content: space-between;
+align-items: center;
+}
+.header-left{
+  display: flex;
+  flex-direction: column;
+}
+/** Links inside header **/
+.header-link{
+  background-color: #a3c293; /* Light green */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff; /* White */
+}
+.header-link a {
+  color: #ffffff; /* White */
+  text-decoration: none;
+}
+.header-link a:hover {
+  text-decoration: underline;
+}
+/**logo**/
+.log{
+margin-left: 70px;
+}
+/**timer and leader board link **/
+.game-info{
+display: flex;
+flex-direction: row;
+gap: 20px;
+margin-right: 10px;
+}
+/*timer*/
+.timer {
+  display: inline-block;
+  position: relative;
+}
+
+.timer .btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.timer .btn img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.timer .btn:hover img {
+  transform: scale(1.1);
+}
+
+.timer .btn:focus img {
+  outline: none;
+  box-shadow: 0 0 5px #fff;
+}
+.leader-board-link{
+
+}
+
+/**   HEADER SECTION ENDS **/
+
+
+
+
+
+
+
+
 
 main {
   margin: 60px;
 }
 
-header {
+/* header {
   text-align: right;
-}
+} */
 
-header .leader-board-btn {
-  background: black;
-  color: white;
-  padding: 20px 30px;
-  border-radius: 10px;
-  font-family: "Kristen ITC", serif;
-}
 
 h1 {
   text-align: center;
