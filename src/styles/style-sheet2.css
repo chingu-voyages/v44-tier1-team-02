@@ -39,7 +39,7 @@ p {
   align-items: center;
 }
 #temp{
-  background-image: url("/");
+  background-image: url("/src/assets/Story-page/temp_rising.jpg");
 }
 #desert{
 background-image: url("/src/assets/Story-page/desert_img.jpg");
@@ -48,7 +48,7 @@ background-image: url("/src/assets/Story-page/desert_img.jpg");
   background-image: url("/src/assets/Story-page/animals_affected.jpg");
 }
 #welcome{
-  background-image: url("/assets/Story-page/269400.png");
+  background-image: url("/src/assets/Story-page/269400.png");
 }
 .Narrator {
   width: 800px;
@@ -166,7 +166,7 @@ border: 1px solid red;
   display: flex;
 }
 .welcome-text{
-  background-image: url("assets/Story-page/qoute_img_6.png");
+  background-image: url("src/assets/Story-page/qoute_img_6.png");
   background-repeat: no-repeat;
 }
 
