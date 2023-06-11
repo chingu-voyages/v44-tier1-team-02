@@ -399,7 +399,7 @@ function changeSizeGrid(event) {
 //   // Enable the dice roll button
 //   document.getElementById("rollDiceBtn").disabled = false;
 // }
-=======
+
 
 // document.querySelector(".check").addEventListener("click",function(){
 // if(score===roundScore){
