@@ -1,11 +1,11 @@
 // Initialize and select variables
 let z = [
-  "src/assets/dice-images/dice1.png",
-  "src/assets/dice-images/dice1.png",
-  "src/assets/dice-images/dice1.png",
-  "src/assets/dice-images/dice1.png",
-  "src/assets/dice-images/dice1.png",
-  "src/assets/dice-images/dice1.png",
+  "../assets/dice-images/dice1.png" ,
+  "../assets/dice-images/dice2.png" ,
+  "../assets/dice-images/dice3.png" ,
+  "../assets/dice-images/dice4.png" ,
+  "../assets/dice-images/dice5.png",
+  "../assets/dice-images/dice6.png" 
 ];
 
 let score = 0;
