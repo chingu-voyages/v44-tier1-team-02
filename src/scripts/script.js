@@ -408,25 +408,25 @@ function changeSizeGrid(event) {
 // })
 
 // Event listener for restart button
-document.querySelector(".restart").addEventListener("click", function () {
-  // sets the name input back to an empty value
-  document.querySelector(".name-player-edit1").value = "";
-  document.querySelector(".name-player-edit2").value = "";
+// document.querySelector(".restart").addEventListener("click", function () {
+//   // sets the name input back to an empty value
+//   document.querySelector(".name-player-edit1").value = "";
+//   document.querySelector(".name-player-edit2").value = "";
 
-  // sets the score back to 0
+//   // sets the score back to 0
 
-  document.querySelector(".name-player-score1").textContent =
-    "Score : " + initialScore;
-  document.querySelector(".name-player-score2").textContent =
-    "Score : " + initialScore;
+//   document.querySelector(".name-player-score1").textContent =
+//     "Score : " + initialScore;
+//   document.querySelector(".name-player-score2").textContent =
+//     "Score : " + initialScore;
 
 
-  // clears the grid
+//   // clears the grid
 
-  document.querySelector(".grid1").style.backgroundColor = "white";
-  document.querySelector(".grid2").style.backgroundColor = "white";
-  // score++;
-});
+//   document.querySelector(".grid1").style.backgroundColor = "white";
+//   document.querySelector(".grid2").style.backgroundColor = "white";
+//   // score++;
+// });
 
 
 // // Function to check for errors
@@ -461,6 +461,6 @@ document.querySelector(".restart").addEventListener("click", function () {
 // }
 
 // Add event listener to change grid size
-let changeSize = document.querySelector(".submit-change-grid-size");
-changeSize.addEventListener("submit", changeSizeGrid);
+// let changeSize = document.querySelector(".submit-change-grid-size");
+// changeSize.addEventListener("submit", changeSizeGrid);
 
