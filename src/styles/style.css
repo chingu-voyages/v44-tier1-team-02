@@ -4,7 +4,7 @@
 }
 
 body {
-  background: url(/assets/game-background-1.jpg) center no-repeat,
+  background: url(/src/assets/game-background-1.jpg) center no-repeat,
     #d8969a;
   background-size: cover;
   color: white;
