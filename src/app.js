@@ -40,6 +40,14 @@ quotes.forEach((quote) => {
 });
 
 
+//play button
+// Add event listener to the play button
+document.getElementById("play-button").addEventListener("click", function() {
+  // Navigate to index.html
+  window.location.href = "index.html";
+});
+
+
 
 
 

@@ -109,46 +109,57 @@ function colorCell(event) {
   }
 }
 
-/**
- * Function to submit the answer
- */
+
+
+
+
 /**
  * Function to submit the answer
  */
 function submitAnswer() {
-  // Calculate the total marked cells for the current player
-  let totalMarkedCells;
+  let markedCells;
   if (currentPlayer === 1) {
-    totalMarkedCells = document.querySelectorAll(".colored-player1").length;
+    markedCells = Array.from(document.querySelectorAll(".colored-player1"));
   } else {
-    totalMarkedCells = document.querySelectorAll(".colored-player2").length;
+    markedCells = Array.from(document.querySelectorAll(".colored-player2"));
   }
-
-  // Get the displayed dice values
   let diceRow = parseInt(document.getElementById("diceValue1").textContent);
   let diceCol = parseInt(document.getElementById("diceValue2").textContent);
+  let roundScore = diceRow * diceCol; // Calculate the round score
 
-  // Compare the total marked cells with the product of the dice values
-  if (totalMarkedCells === diceRow * diceCol) {
-    // Correct answer
-    alert("Congratulations! Your answer is correct.");
+  let markedCount = 0;
+  let isCorrect = true;
 
-    // Update the score for the current player
+  // Check if the marked cells match the current round score
+  for (let i = 0; i < markedCells.length; i++) {
+    if (markedCells[i].classList.contains("marked")) {
+      continue; // Skip already marked cells from previous rounds
+    }
+
+    markedCount++;
+    markedCells[i].classList.add("marked");
+
+    if (markedCount > roundScore) {
+      isCorrect = false;
+      break;
+    }
+  }
+
+  if (isCorrect && markedCount === roundScore) {
+    alert("Congratulations! Your answer is correct. You marked " + roundScore + " cells for this round.");
+
     if (currentPlayer === 1) {
-      player1Score += diceRow * diceCol;
+      player1Score += roundScore;
       document.getElementById("player-1-score").textContent = "Player 1 Score: " + player1Score;
     } else {
-      player2Score += diceRow * diceCol;
+      player2Score += roundScore;
       document.getElementById("player-2-score").textContent = "Player 2 Score: " + player2Score;
     }
 
-    // Switch to the next player's turn
     switchPlayerTurn();
   } else {
-    // Incorrect answer
-    alert("Sorry, your answer is incorrect.");
+    alert("Sorry, your answer is incorrect. The required number of marked cells for this round is: " + roundScore);
 
-    // Enable the grid for marking
     if (currentPlayer === 1) {
       grid1.addEventListener("click", colorCell);
     } else {
@@ -158,14 +169,12 @@ function submitAnswer() {
 }
 
 
+
 function switchPlayerTurn() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
   document.getElementById("dice-btn").disabled = false;
   document.getElementById("submit-btn").disabled = true;
 }
-
-
-
 
 
 
@@ -232,13 +241,13 @@ function switchPlayerTurn() {
 
 
 
-// Add event listener to the dice button
-var diceBtn = document.getElementById("dice-btn");
-diceBtn.addEventListener("click", rollDice);
+// // Add event listener to the dice button
+// var diceBtn = document.getElementById("dice-btn");
+// diceBtn.addEventListener("click", rollDice);
 
-// Add event listener to the click on the cell for coloring
-grid1.addEventListener("click", colorCell);
-grid2.addEventListener("click", colorCell);
+// // Add event listener to the click on the cell for coloring
+// grid1.addEventListener("click", colorCell);
+// grid2.addEventListener("click", colorCell);
 
 
 // //Add an event listener to right click on the cell for clearing the color
