@@ -1,0 +1,171 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Bubblegum+Sans&display=swap');
+
+
+body {
+  padding: 0;
+  margin: 0;
+
+}
+
+h1 {
+  font-family: 'Bangers', cursive;
+
+}
+
+p {
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+.story-page {
+  /* display: flex; */
+}
+
+.content-container {
+  background-image: url("/assets/Story-page/deforestation_img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 20px;
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+#temp{
+  background-image: url("/assets/Story-page/temp_rising.jpg");
+}
+#desert{
+background-image: url("/assets/Story-page/desert_img.jpg");
+}
+#animals{
+  background-image: url("/assets/Story-page/animals_affected.jpg");
+}
+
+.Narrator {
+  width: 800px;
+  height: 700px;
+  /* border: 10px solid black; */
+  display: flex;
+}
+
+.quote {
+  /* border: 5px solid pink; */
+  width: 400px;
+  height: 300px;
+  width: 50%;
+
+  background-image: url("/assets/Story-page/qoute_img.png");
+  background-repeat: no-repeat;
+  background-size: 400px 300px;
+  /** positioning h1 quote **/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.quote>h1 {
+  font-size: 48px;
+
+}
+
+.owl-character {
+  width: 50%;
+  height: 100%;
+  /* border: 10px solid white; */
+  /*positioning**/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.owl-character>img {
+  width: 500px;
+  height: 400px;
+
+}
+
+/** Animate character **/
+.owl-character img {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+/** Rule Section**/
+
+.rule-intro{
+  display: flex;
+}
+.game-rule{
+  border: 1px solid green;
+  border: 8px solid red;
+  width: 350px;
+  /* background-image: url("/assets/Story-page/Rule_Frame.png");
+  background-repeat: no-repeat;
+  background-size: 400px 800px; */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.game-rule > p{
+
+  font-size: 24px;
+  color: rgb(15, 97, 23);
+  margin: 0;
+}
+
+.play-btn >button{
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: aliceblue;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+/** Landing Page style **/
+.welcome-section{
+border: 1px solid red;
+}
+
+.welcome-content{
+  border: 1px solid green;
+  display: flex;
+}
+.welcome-text{
+  background-image: url("/assets/Story-page/qoute_img_6.png");
+  background-repeat: no-repeat;
+}
+
+
