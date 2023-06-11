@@ -5,7 +5,7 @@ let z = [
   "../assets/dice-images/dice3.png" ,
   "../assets/dice-images/dice4.png" ,
   "../assets/dice-images/dice5.png",
-  "../assets/dice-images/dice6.png" 
+  "../assets/dice-images/dice6.png"
 ];
 
 let score = 0;
