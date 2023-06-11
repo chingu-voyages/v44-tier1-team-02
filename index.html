@@ -5,50 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/fonts/Kristen-ITC.ttf" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="./src/styles/style.css" />
-
-
     <title>Array Game</title>
   </head>
   <body class="page1">
     <main>
       <header>
         <a href="leaderboard.html"><button class="leader-board-btn">
-          Leader board</button></a> 
-        
+          Leader board</button></a>
       </header>
       <h1>Math Matrix</h1>
-      <input type="color" class="change-color" />
-      <label for="change-color">Choose color</label>
+      <!-- <input type="color" class="change-color" />
+      <label for="change-color">Choose color</label> -->
 
       <!--Grid Section -->
       <section class="showGridSect">
-        <div class="grid-1"></div>
-        <div class="grid-2"></div>
-      </section>
-
-      <section class="scoreboard">
+        <!---Game Board-->
         <div class="player-1">
-          <p id="player-1-score"></p>
+          <div class="scoreboard">
+            <figure>
+              <img
+              class="name-player-img"
+              src="assets/dice-images/avatar1.png"
+              alt="Avatar 1"
+            />
+            </figure>
+            <figcaption>
+              <p id="player-1-score"></p>
+            </figcaption>
+
+          </div>
+          <div class="grid-1"></div>
         </div>
         <div class="player-2">
-          <p id="player-2"></p>
+          <div class="score-board">
+            <figure>
+              <img
+              class="name-player-img"
+              src="assets/dice-images/avatar1.png"
+              alt="Avatar 1"
+            />
+            </figure>
+            <figcaption>
+              <p id="player-2"></p>
+            </figcaption>
+
+          </div>
+          <div class="grid-2"></div>
         </div>
       </section>
+
+
       <!-- <div class="player-container">
         <form>
-          <img
-            class="name-player-img"
-            src="assets/dice-images/avatar1.png"
-            alt="Avatar 1"
-          />
+
           <div>
             <label for="name-player-edit" class="name-player-label"
               >Player name 1

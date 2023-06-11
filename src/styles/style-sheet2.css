@@ -155,13 +155,17 @@ background-image: url("/assets/Story-page/desert_img.jpg");
 
 
 /** Landing Page style **/
-.landing-page{
+.welcome-section{
 border: 1px solid red;
 }
 
-.main-content{
+.welcome-content{
   border: 1px solid green;
+  display: flex;
 }
-
+.welcome-text{
+  background-image: url("/assets/Story-page/qoute_img_6.png");
+  background-repeat: no-repeat;
+}
 
 

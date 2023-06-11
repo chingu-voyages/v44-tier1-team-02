@@ -6,12 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style-sheet2.css">
+    <link rel="stylesheet" href="/src/styles/style-sheet2.css">
 </head>
 
 <body>
 
+    <!-- Welcome Section
+    <section class="welcome-section">
+        <article class="welcome-content">
+            <div class="owl-character">
+                <img src="/assets/starting-page/owl-calculator-golden.png">
+            </div>
+
+            <div class="welcome-text">
+                <p>welcome, human.</p>
+            </div>
+        </article>
+
+    </section> -->
     <Section class="story-page">
+
+        <!--Welcome Section-->
+        <div class="content-container" id="deforestation">
+            <div class="Narrator">
+                <div class="quote">
+
+                    <h1 class="narration-text" id="narration-text">Welcome</h1>
+                </div>
+                <div class="owl-character">
+                    <!-- image of owl character -->
+                    <img src="/assets/starting-page/owl-calculator-golden.png">
+                </div>
+            </div>
+        </div>
         <!-- Deforestation Section-->
         <div class="content-container" id="deforestation">
             <div class="Narrator">
@@ -68,29 +95,30 @@
         </div>
     </Section>
 
-<section class="rule-intro">
-    <!--  Owl character -->
-    <div class="owl-character">
-        <img src="/assets/starting-page/owl-calculator-golden.png">
+     <!--  Game Rule Section -->
+    <section class="rule-intro">
+
+        <div class="owl-character">
+            <img src="/assets/starting-page/owl-calculator-golden.png">
+        </div>
+        <div class="game-rule">
+            <p>1.Each player has their own 10x10 grid.</p>
+
+            <p>2.Taking turns, players roll both dice and then shade in the appropriate array on their grids.</p>
+            <p>For example, if you roll a 4 and a 5 you would shade in a 4x5 array.</p>
+            <p>You can choose to shade the array either vertically or horizontally.</p>
+            <p>For example, the array could be either 4 rows by 5 columns or 5 rows by 4 columns.</p>
+            </p>
+        </div>
+
+    </section>
+
+    <div class="play-btn">
+        <button id="play-button">Play</button>>
     </div>
-    <div class="game-rule">
-        <p>1.Each player has their own 10x10 grid.</p>
-
-<p>2.Taking turns, players roll both dice and then shade in the appropriate array on their grids.</p>
-<p>For example, if you roll a 4 and a 5 you would shade in a 4x5 array.</p>
- <p>You can choose to shade the array either vertically or horizontally.</p>
- <p>For example, the array could be either 4 rows by 5 columns or 5 rows by 4 columns.</p>
-</p>
- </div>
-
-</section>
-
-<div class="play-btn">
-    <button id="play-button">Play</button>> 
-</div>
 
 
-     <script src="src/app.js"></script>
+    <script src="src/app.js"></script>
 </body>
 
 </html>
