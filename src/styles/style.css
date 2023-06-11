@@ -65,7 +65,8 @@ h1 {
   display: block;
 }
 
-.grid,
+
+.grid-1,
 .grid-2 {
   display: grid;
   gap: 0;
