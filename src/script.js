@@ -7,6 +7,7 @@ let z = [
   "assets/dice-images/dice5.png",
   "assets/dice-images/dice6.png",
 ];
+
 let score = 0;
 let startScore = 0;
 let currentPlayer = 1;
@@ -16,13 +17,14 @@ let timer;
 
 const grid1 = document.querySelector(".grid-1");
 const grid2 = document.querySelector(".grid-2");
-const output = { rows: 10, cols: 10 };
+let output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 
 // Event Listeners
 // Add event listener to the dice button
 var diceBtn = document.getElementById("dice-btn");
 diceBtn.addEventListener("click", rollDice);
+
 
 // Add event listener to the click on the cell for coloring
 grid1.addEventListener("click", colorCell);
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   createGrid(grid1);
   createGrid(grid2);
 });
+
 
 /**
  * Function to create grid
@@ -139,6 +142,7 @@ function submitAnswer() {
     markedCount++;
     markedCells[i].classList.add("marked");
 
+
     if (markedCount > roundScore) {
       isCorrect = false;
       break;
@@ -147,7 +151,6 @@ function submitAnswer() {
 
   if (isCorrect && markedCount === roundScore) {
     alert("Congratulations! Your answer is correct. You marked " + roundScore + " cells for this round.");
-
     if (currentPlayer === 1) {
       player1Score += roundScore;
       document.getElementById("player-1-score").textContent = "Player 1 Score: " + player1Score;
@@ -155,10 +158,10 @@ function submitAnswer() {
       player2Score += roundScore;
       document.getElementById("player-2-score").textContent = "Player 2 Score: " + player2Score;
     }
-
     switchPlayerTurn();
   } else {
     alert("Sorry, your answer is incorrect. The required number of marked cells for this round is: " + roundScore);
+
 
     if (currentPlayer === 1) {
       grid1.addEventListener("click", colorCell);
@@ -169,12 +172,38 @@ function submitAnswer() {
 }
 
 
-
 function switchPlayerTurn() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
   document.getElementById("dice-btn").disabled = false;
   document.getElementById("submit-btn").disabled = true;
 }
+
+
+/**
+ * Function to change grid size
+ */
+function changeSizeGrid(event) {
+  event.preventDefault();
+  let changeHeight = document.querySelector(".change-grid-height");
+  let changeWidth = document.querySelector(".change-grid-width");
+  let tables = document.querySelectorAll("table");
+
+  //Delete previous tables
+  tables.forEach((table) => table.remove());
+
+  //Change the number of columns, rows and cell size
+  output.rows = changeHeight.value;
+  output.cols = changeWidth.value;
+  document.documentElement.style.setProperty(
+    "--size-cell",
+    Math.round(500 / changeWidth.value) + "px"
+  );
+
+  //Create new grids
+  createGrid(grid1);
+  createGrid(grid2);
+}
+
 
 
 
@@ -207,6 +236,7 @@ function switchPlayerTurn() {
 //     score++;
 //   }
 // }
+
 
 // //Clear grid for repainting
 // function repaintGridAnimation() {
@@ -241,6 +271,11 @@ function switchPlayerTurn() {
 
 
 
+// User can see a button in the game control pane
+// to start a new game, which
+// updates the Leaderboard, clears the grid, and starts a new game.
+
+
 // // Add event listener to the dice button
 // var diceBtn = document.getElementById("dice-btn");
 // diceBtn.addEventListener("click", rollDice);
@@ -248,6 +283,7 @@ function switchPlayerTurn() {
 // // Add event listener to the click on the cell for coloring
 // grid1.addEventListener("click", colorCell);
 // grid2.addEventListener("click", colorCell);
+
 
 
 // //Add an event listener to right click on the cell for clearing the color
@@ -363,8 +399,34 @@ function switchPlayerTurn() {
 //   // Enable the dice roll button
 //   document.getElementById("rollDiceBtn").disabled = false;
 // }
+=======
+
+// document.querySelector(".check").addEventListener("click",function(){
+// if(score===roundScore){
+//   updatedScore++
+// }
+// })
+
+// Event listener for restart button
+document.querySelector(".restart").addEventListener("click", function () {
+  // sets the name input back to an empty value
+  document.querySelector(".name-player-edit1").value = "";
+  document.querySelector(".name-player-edit2").value = "";
+
+  // sets the score back to 0
+
+  document.querySelector(".name-player-score1").textContent =
+    "Score : " + initialScore;
+  document.querySelector(".name-player-score2").textContent =
+    "Score : " + initialScore;
 
 
+  // clears the grid
+
+  document.querySelector(".grid1").style.backgroundColor = "white";
+  document.querySelector(".grid2").style.backgroundColor = "white";
+  // score++;
+});
 
 
 // // Function to check for errors
@@ -387,6 +449,7 @@ function switchPlayerTurn() {
 // const startBtn = document.getElementById("start-btn");
 // startBtn.addEventListener("click", startNewGame);
 
+
 // // Event listener for the "Roll Dice" button
 // const rollBtn = document.getElementById("roll-btn");
 // rollBtn.addEventListener("click", rollDice);
@@ -396,3 +459,8 @@ function switchPlayerTurn() {
 // for (let i = 0; i < gridSquares.length; i++) {
 //   gridSquares[i].addEventListener("click", markGrid);
 // }
+
+// Add event listener to change grid size
+let changeSize = document.querySelector(".submit-change-grid-size");
+changeSize.addEventListener("submit", changeSizeGrid);
+
