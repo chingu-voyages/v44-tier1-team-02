@@ -24,7 +24,7 @@ p {
 }
 
 .content-container {
-  background-image: url("/src/assets/Story-page/deforestation_img.jpg");
+  background-image: url("src/assets/Story-page/deforestation_img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -39,16 +39,16 @@ p {
   align-items: center;
 }
 #temp{
-  background-image: url("/src/assets/Story-page/temp_rising.jpg");
+  background-image: url("src/assets/Story-page/temp_rising.jpg");
 }
 #desert{
-background-image: url("/src/assets/Story-page/desert_img.jpg");
+background-image: url("src/assets/Story-page/desert_img.jpg");
 }
 #animals{
-  background-image: url("/src/assets/Story-page/animals_affected.jpg");
+  background-image: url("src/assets/Story-page/animals_affected.jpg");
 }
 #welcome{
-  background-image: url("/src/assets/Story-page/269400.png");
+  background-image: url("src/assets/Story-page/269400.png");
 }
 .Narrator {
   width: 800px;
@@ -63,7 +63,7 @@ background-image: url("/src/assets/Story-page/desert_img.jpg");
   height: 300px;
   width: 50%;
 
-  background-image: url("/src/assets/Story-page/qoute_img.png");
+  background-image: url("src/assets/Story-page/qoute_img.png");
   background-repeat: no-repeat;
   background-size: 400px 300px;
   /** positioning h1 quote **/
