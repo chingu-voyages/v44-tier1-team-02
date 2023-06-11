@@ -13,7 +13,7 @@
 
 <body class="page1">
 
-  <!-- Header section begins-->
+  <!-- HEADER SECTION BEGINS-->
   <header class="header">
   <!--About us -->
   <div class="header-left">
@@ -24,14 +24,13 @@
 <div class="about-us header-link">
   <a href="#">About Us</a>
 </div>
-
   </div>
 
-  <!--Game info -->
+  <!--Game info link  -->
     <div class="game-info">
       <div class="timer">
         <button class="btn">
-          <img src="../assets/Other_images/timer_img.png">
+          <img src="../assets/other_images/timer_img.png">
         </button>
       </div>
       <div class="header-link">
@@ -39,6 +38,49 @@
       </div>
     </div>
   </header>
+  <!-- HEADER SECTION ENDS-->
+
+  <!--GAME BOARD SECTION BEGINS --->
+  <section class="game_board_section">
+
+       <!--Grid Section -->
+       <div class="game_board">
+       <!--Player 1 side-->
+        <article class="player" id="player-1" >
+          <!--Score board-->
+          <div class="score-board" id="score-board-1">
+            <!--Avatar-1-->
+            <figure class="avatar" id="avatar-1">
+              <img class="name-player-img" src="../assets/Avatars/tiger.png" alt="Avatar 1" />
+            </figure>
+            <!--Score-->
+            <figcaption class="player-score">
+              <p id="player-1-score">20</p>
+            </figcaption>
+          </div>
+          <!--Grid-1-->
+          <div class="grid-1"></div>
+        </article>
+
+
+        <article class="player" id="player-2">
+          <div class="score-board" id="score-board-2">
+            <figure class="avatar" id="avatar-2">
+              <img class="name-player-img" src="../assets/Avatars/ziraff.png" alt="Avatar 1" />
+            </figure>
+            <figcaption class="player-score">
+              <p id="player-2-score">100</p>
+            </figcaption>
+  
+          </div>
+          <div class="grid-2"></div>
+        </article>
+      </div>
+
+  </section>
+
+  <!--GAME BOARD SECTION ENDS --->
+
   <main>
 
     <!-- <input type="color" class="change-color" />
@@ -46,35 +88,7 @@
 
 
 
-    <!--Grid Section -->
-    <section class="showGridSect">
-      <!---Game Board-->
-      <div class="player-1">
-        <div class="scoreboard">
-          <figure>
-            <img class="name-player-img" src="../assets/dice-images/avatar1.png" alt="Avatar 1" />
 
-          </figure>
-          <figcaption>
-            <p id="player-1-score"></p>
-          </figcaption>
-
-        </div>
-        <div class="grid-1"></div>
-      </div>
-      <div class="player-2">
-        <div class="score-board">
-          <figure>
-            <img class="name-player-img" src="../assets/dice-images/avatar2.jpg" alt="Avatar 1" />
-          </figure>
-          <figcaption>
-            <p id="player-2-score"></p>
-          </figcaption>
-
-        </div>
-        <div class="grid-2"></div>
-      </div>
-    </section>
 
 
     <!-- <div class="player-container">

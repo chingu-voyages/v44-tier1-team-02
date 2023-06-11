@@ -153,10 +153,10 @@ function submitAnswer() {
     alert("Congratulations! Your answer is correct. You marked " + roundScore + " cells for this round.");
     if (currentPlayer === 1) {
       player1Score += roundScore;
-      document.getElementById("player-1-score").textContent = "Player 1 Score: " + player1Score;
+      document.getElementById("player-1-score").textContent =  player1Score;
     } else {
       player2Score += roundScore;
-      document.getElementById("player-2-score").textContent = "Player 2 Score: " + player2Score;
+      document.getElementById("player-2-score").textContent =  player2Score;
     }
     switchPlayerTurn();
   } else {
