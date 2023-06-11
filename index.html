@@ -5,33 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Math Matrix</title>
     <link rel="stylesheet" href="src/styles/style-sheet2.css">
 </head>
 
 <body>
 
-    <!-- Welcome Section
-    <section class="welcome-section">
-        <article class="welcome-content">
-            <div class="owl-character">
-                <img src="/assets/starting-page/owl-calculator-golden.png">
-            </div>
-
-            <div class="welcome-text">
-                <p>welcome, human.</p>
-            </div>
-        </article>
-
-    </section> -->
-    <Section class="story-page">
-
-        <!--Welcome Section-->
-        <div class="content-container" id="welcome">
-            <div class="Narrator">
-                <div class="quote">
-
+    <section>
+         <!--Welcome Section-->
+         <div class="content-container" id="welcome">
+            <div class="Narrator" id="welcome-nar">
+                <div class="quote" id="story-line">
                     <h1 class="narration-text" id="narration-text">Welcome</h1>
+
                 </div>
                 <div class="owl-character">
                     <!-- image of owl character -->
@@ -39,6 +25,13 @@
                 </div>
             </div>
         </div>
+    </section>
+
+
+
+    <Section class="story-page">
+
+
         <!-- Deforestation Section-->
         <div class="content-container" id="deforestation">
             <div class="Narrator">
@@ -111,11 +104,12 @@
             </p>
         </div>
 
+        <div class="play-btn">
+            <button id="play-button">Begin</button>
+        </div>
     </section>
 
-    <div class="play-btn">
-        <button id="play-button">Play</button>
-    </div>
+
 
 
     <script src="src/scripts/app.js"></script>

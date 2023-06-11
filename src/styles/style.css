@@ -61,9 +61,8 @@ table {
 }
 /** GLOBAL STYLE **/
 body {
-  background: url(../assets/game-background-1.jpg) center no-repeat,
-    #d8969a;
-  background-size: cover;
+  background: url(../assets/game-background-1.jpg) center no-repeat;
+  background-size:cover;
   color: white;
 
 }
@@ -73,7 +72,7 @@ body {
 
 /** HEADER STYLING BEGINS **/
 .header{
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
 }
 
@@ -161,18 +160,21 @@ margin-right: 10px;
   align-items: center;
   gap: 200px;
 
+  /* border: 1px solid white; */
+  padding: 50px;
 }
 /**Score Board**/
 .player {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 20px;
 
 }
 
 .score-board{
-  border: 1px solid white;
+  /* border: 1px solid white; */
   display: flex;
   flex-direction: column-reverse;
 
@@ -181,7 +183,7 @@ margin-right: 10px;
 
 }
 .avatar{
-  border: 1px solid rebeccapurple;
+  /* border: 1px solid rebeccapurple; */
   margin-left: 50px;
 }
 #avatar-1{
@@ -193,7 +195,7 @@ margin-right: 10px;
 
 }
 .player-score{
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 
   height: 100px;
   background-image: url(../assets/Story-page/qoute_img_6.png);
@@ -212,54 +214,6 @@ font-size: 32px;
   font-size: 32px;
 }
 /**Grid section**/
-/**game control buttons**/
-
-/** GAME BOARD SECTION ENDS **/
-
-
-
-
-
-
-
-main {
-  margin: 60px;
-}
-
-/* header {
-  text-align: right;
-} */
-
-
-h1 {
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-
-
-.player-container form {
-  display: flex;
-  align-items: end;
-  margin-bottom: 30px;
-}
-
-.player-container .name-player-img {
-  margin-right: 20px;
-}
-
-.player-container .name-player-label {
-  margin-right: 20px;
-}
-
-.player-container .name-player-edit1 {
-  display: block;
-}
-
-.player-container .name-player-edit2 {
-  display: block;
-}
-
 
 .grid-1,
 .grid-2 {
@@ -290,6 +244,91 @@ table {
   width: 25px;
   background: none;
 }
+/**game control buttons**/
+.control-buttons{
+  /* border: 1px solid yellow; */
+  display: flex;
+  justify-content: center;
+}
+.btn-container{
+  /* border: 1px solid indianred; */
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.control-buttons {
+  margin-top: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.control-buttons button {
+  background-color: #2e8b57;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.control-buttons button:hover {
+  background-color: #228b22;
+}
+
+.control-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #fff;
+}
+
+/** GAME BOARD SECTION ENDS **/
+
+
+
+
+
+
+
+
+/* header {
+  text-align: right;
+} */
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+
+
+/* .player-container form {
+  display: flex;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.player-container .name-player-img {
+  margin-right: 20px;
+}
+
+.player-container .name-player-label {
+  margin-right: 20px;
+}
+
+.player-container .name-player-edit1 {
+  display: block;
+}
+
+.player-container .name-player-edit2 {
+  display: block;
+} */
+
+
 
 input:invalid + span:after {
   content: "✖";
@@ -304,10 +343,13 @@ input:valid + span:after {
 }
 
 .dice-btn-container {
+
+width: 120px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .diceRollSect {

@@ -39,7 +39,7 @@
     </div>
   </header>
   <!-- HEADER SECTION ENDS-->
-
+  <main>
   <!--GAME BOARD SECTION BEGINS --->
   <section class="game_board_section">
 
@@ -60,6 +60,14 @@
           </div>
           <!--Grid-1-->
           <div class="grid-1"></div>
+          <!--Control buttons -->
+          <div class="control-buttons">
+            <div class="btn-container">
+              <button id="submit-btn">Submit</button>
+              <button class="repaint-btn">Clear</button>
+            </div>
+
+          </div>
         </article>
 
 
@@ -71,9 +79,16 @@
             <figcaption class="player-score">
               <p id="player-2-score">100</p>
             </figcaption>
-  
           </div>
           <div class="grid-2"></div>
+          <!--Control buttons -->
+          <div class="control-buttons">
+            <div class="btn-container">
+              <button id="submit-btn">Submit</button>
+              <button class="repaint-btn">Clear</button>
+            </div>
+
+          </div>
         </article>
       </div>
 
@@ -81,7 +96,7 @@
 
   <!--GAME BOARD SECTION ENDS --->
 
-  <main>
+
 
     <!-- <input type="color" class="change-color" />
       <label for="change-color">Choose color</label> -->
@@ -131,20 +146,9 @@
       </div> -->
 
     <div class="dice-btn-container">
-      <h2>V.C</h2>
-      <br />
-      <br />
-      <p>Roll The Dice</p>
       <button id="dice-btn" class="emoji-dice">
         <img width="100px" src="../assets/dice-images/dice-button.jpg" alt="" />
       </button>
-
-      <br />
-      <br />
-      <br />
-
-
-
     </div>
 
 
@@ -180,17 +184,17 @@
 
 
     <div class="play-btn">
-      <button id="submit-btn">Submit</button>
+
 
       <button class="btn restart">Restart?</button>
-      <button class="repaint-btn">Clear</button>
+
     </div>
 
 
 
     <!--CORRECT ERROR ALERT TO SHOW YOU HAD IT RIGHT-->
 
-    <div class="display error-correct-container">
+    <div class="display error-correct-container" style="display: none;">
       <div class="close-correct">X</div>
       <div class="error error-message-correct">
         <p>Array answer was correct</p>
