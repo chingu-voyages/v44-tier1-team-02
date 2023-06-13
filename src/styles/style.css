@@ -65,6 +65,8 @@ body {
   background-size:cover;
   color: white;
 
+
+
 }
 
 /**   BUTTONS **/
@@ -149,6 +151,9 @@ margin-right: 10px;
 }
 
 /**   HEADER SECTION ENDS **/
+main{
+
+}
 
 /** GAME BOARD SECTION BEGINS **/
 .game_board {
