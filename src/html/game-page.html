@@ -108,44 +108,69 @@
   <!--GAME BOARD SECTION ENDS --->
 
   <!--- Pop up Section-->
-  <section class="pop-up-container" style="display: none;">
-    <!--Dice Roll Section -->
- <div id="diceRoll" class="diceRollSect" style="display: none;">
-  <!-- <div class="round-score">
-    <!-- <p id="round-score"></p> -->
-  <!-- </div> --> 
+  <section class="pop-up-container">
 
-  <div class="dice-container">
-    <!--Dice 1-->
-    <div class="dice colmn-1">
-      <div class="valueBox">
-        <p id="diceValue1" class="diceValue"></p>
-      </div>
-
-      <img class="img1" src="../assets/dice-images/dice1.png" />
-    </div>
-    <!----Dice 2-->
-    <div class="dice colmn-2">
-      <div class="valueBox">
-        <p id="diceValue2" class="diceValue"></p>
-      </div>
-
-      <img class="img2" src="../assets/dice-images/dice6.png" />
-    </div>
-  </div>
-</div>
      <!-- Correct Alert-->
-     <div class="correct-alert">
-      <figure></figure>
-      <figcaption></figcaption>
+     <div class="alert" id="correct-alert">
+      <div class="alert-msg">
+        <figure>
+          <img src="../assets/Avatars/tiger.png">
+        </figure>
+        <figcaption>
+          <h2>CONGRATULATIONS</h2>
+          <P>Your Answer is Correct</P>
+        </figcaption>
+      </div>
+<div class="btn-container">
+  <button>CLOSE</button>
+</div>
      </div>
      <!--- Incorrect Alert-->
+     <div class="alert" id="incorrect-alert">
+      <div class="alert-msg">
+        <figure>
+          <img src="../assets/Avatars/tiger.png">
+        </figure>
+        <figcaption>
+          <h2>Incorrect</h2>
+          <P>try again</P>
+        </figcaption>
+      </div>
+<div class="btn-container">
+  <button>CLOSE</button>
+</div>
+     </div>
      <!--Game restart alert-->
     
   </section>
 
 
-
+  <!--Dice Roll Section -->
+  <div id="diceRoll" class="diceRollSect" style="display: none;">
+    <!-- <div class="round-score">
+      <!-- <p id="round-score"></p> -->
+    <!-- </div> -->
+  
+    <div class="dice-container">
+      <!--Dice 1-->
+      <div class="dice colmn-1">
+        <div class="valueBox">
+          <p id="diceValue1" class="diceValue"></p>
+        </div>
+  
+        <img class="img1" src="../assets/dice-images/dice1.png" />
+      </div>
+      <!----Dice 2-->
+      <div class="dice colmn-2">
+        <div class="valueBox">
+          <p id="diceValue2" class="diceValue"></p>
+        </div>
+  
+        <img class="img2" src="../assets/dice-images/dice6.png" />
+      </div>
+    </div>
+    <button class="close">Close</button>
+  </div>
 
 </main>
 

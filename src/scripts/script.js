@@ -22,6 +22,10 @@ const total = output.rows * output.cols;
 
 //pop up section
 var popUp = document.querySelector(".pop-up-container");
+var close = document.querySelector(".close");
+close.addEventListener("click",function(){
+  popUp.style.display = "none";
+})
 // Event Listeners
 // Add event listener to the dice button
 var diceBtn = document.getElementById("dice-btn");
