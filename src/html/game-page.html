@@ -45,7 +45,8 @@
 
        <!--Grid Section -->
        <div class="game_board">
-       <!--Player 1 side-->
+
+       <!--Player 1 board-->
         <article class="player" id="player-1" >
           <!--Score board-->
           <div class="score-board" id="score-board-1">
@@ -75,6 +76,7 @@
           </div>
         </article>
 
+        <!--Player 2 board-->
         <article class="player" id="player-2">
           <div class="score-board" id="score-board-2">
             <figure class="avatar" id="avatar-2">
@@ -105,19 +107,13 @@
 
   <!--GAME BOARD SECTION ENDS --->
 
-
-
-    <!-- <div class="dice-btn-container">
-      <button id="dice-btn" class="emoji-dice">
-        <img width="100px" src="../assets/dice-images/dice-button.jpg" alt="" />
-      </button>
-    </div> -->
-
- <!--Dice Roll Section -->
- <section id="diceRoll" class="diceRollSect" style="display: none;">
-  <div class="round-score">
+  <!--- Pop up Section-->
+  <section class="pop-up-container" style="display: none;">
+    <!--Dice Roll Section -->
+ <div id="diceRoll" class="diceRollSect" style="display: none;">
+  <!-- <div class="round-score">
     <!-- <p id="round-score"></p> -->
-  </div>
+  <!-- </div> --> 
 
   <div class="dice-container">
     <!--Dice 1-->
@@ -137,7 +133,18 @@
       <img class="img2" src="../assets/dice-images/dice6.png" />
     </div>
   </div>
-</section>
+</div>
+     <!-- Correct Alert-->
+     <div class="correct-alert">
+      <figure></figure>
+      <figcaption></figcaption>
+     </div>
+     <!--- Incorrect Alert-->
+     <!--Game restart alert-->
+    
+  </section>
+
+
 
 
 </main>

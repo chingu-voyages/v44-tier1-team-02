@@ -159,6 +159,7 @@ margin-right: 10px;
 main{
 border: 1px solid white;
 background-color: #1dad7b;
+position: relative;
 
 }
 footer{
@@ -262,12 +263,10 @@ table {
 }
 /**game control buttons**/
 .control-buttons{
-  /* border: 1px solid yellow; */
   display: flex;
   justify-content: center;
 }
 .btn-container{
-  /* border: 1px solid indianred; */
   width: 50%;
   display: flex;
   justify-content: space-evenly;
@@ -303,44 +302,25 @@ table {
 
 /** GAME BOARD SECTION ENDS **/
 
+/** POP UP SECTION **/
 
-
-
-
-
-
-
-
-
-
-/* .player-container form {
-  display: flex;
-  align-items: end;
-  margin-bottom: 30px;
+.pop-up-container{
+  border: 1px solid white;
+  background-color: #012152;
+  width: 500px;
+  height: 500px;
+  /* display: flex; */
+  position: absolute;
+  top:15px;
+  left:700px;
 }
 
-.player-container .name-player-img {
-  margin-right: 20px;
-}
 
-.player-container .name-player-label {
-  margin-right: 20px;
-}
-
-.player-container .name-player-edit1 {
-  display: block;
-}
-
-.player-container .name-player-edit2 {
-  display: block;
-} */
-
-
-
+/***Dice section ***/
 
 .dice-btn-container {
 
-   width: 120px;
+  width: 120px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -349,9 +329,8 @@ table {
 }
 
 .diceRollSect {
-  visibility: hidden;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 .diceRollSect > h1 {
@@ -461,7 +440,7 @@ img {
   font-family: "Kristen-ITC", serif;
   color: #3a3d51;
 }
-/* 
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -594,8 +573,8 @@ img {
 
 
 /*STYLES FOR MOBILE WIDTHS*/
-/* @media (min-width: 500px) {
+ @media (min-width: 500px) {
   .error-correct-container {
     flex-direction: row;
   }
-} */ */
+}

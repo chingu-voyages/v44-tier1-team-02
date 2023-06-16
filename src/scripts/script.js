@@ -20,6 +20,8 @@ const grid2 = document.querySelector(".grid-2");
 let output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 
+//pop up section
+var popUp = document.querySelector(".pop-up-container");
 // Event Listeners
 // Add event listener to the dice button
 var diceBtn = document.getElementById("dice-btn");
@@ -33,6 +35,7 @@ grid2.addEventListener("click", colorCell);
 // Add event listener to the submit button
 var submitBtn = document.getElementById("submit-btn");
 submitBtn.addEventListener("click", submitAnswer);
+
 
 // Create grids
 document.addEventListener("DOMContentLoaded", function () {
@@ -65,9 +68,10 @@ function createGrid(grid) {
  * Function to roll the dice
  */
 function rollDice() {
+  popUp.style.display="flex";
   // Show section
   let diceRollSect = document.querySelector(".diceRollSect");
-  diceRollSect.style.visibility = "visible";
+  diceRollSect.style.display = "block"
 
   // Generate random numbers for the dice images
   let x = Math.floor(Math.random() * z.length + 1);
