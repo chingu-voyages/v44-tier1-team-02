@@ -104,10 +104,12 @@ align-items: center;
 .header-link a {
   color: #ffffff; /* White */
   text-decoration: none;
+  
 }
 .header-link a:hover {
   text-decoration: underline;
 }
+
 /**logo**/
 .log{
 margin-left: 70px;
@@ -175,9 +177,11 @@ main{
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-
 }
 
+.name{
+  /* color: #1dad7b; */
+}
 .score-board{
   /* border: 1px solid white; */
   display: flex;
@@ -227,6 +231,15 @@ font-size: 32px;
   width: 500px;
   place-items: center;
   background-color: white;
+  
+}
+
+.grid-active{
+  border:solid 5px #43ed9b;
+}
+
+.player-score{
+  
 }
 
 table {
@@ -460,6 +473,11 @@ img {
 
 .restart:hover {
   background-color: rgb(127, 198, 21);
+}
+
+.play-btn{
+/* align-self: center; */
+
 }
 
 /* Leader board section */

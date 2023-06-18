@@ -22,7 +22,7 @@
   <img src="../assets/starting-page/owl-calculator-golden.png">
 </div>
 <div class="about-us header-link">
-  <a href="#">About Us</a>
+  <a href="about-us.html">About Us</a>
 </div>
   </div>
 <main>
@@ -46,24 +46,29 @@
        <!--Grid Section -->
        <div class="game_board">
        <!--Player 1 side-->
-        <article class="player" id="player-1" >
+        <article class="player player-active" id="player-1" >
           <!--Score board-->
           <div class="score-board" id="score-board-1">
             <!--Avatar-1-->
             <figure class="avatar" id="avatar-1">
               <img class="name-player-img" src="../assets/Avatars/tiger.png" alt="Avatar 1" />
             </figure>
+            <!-- Name -->
+            
+            <div class="player-name-1">
+          <input id="name player-name1" type="text" placeholder="Please type your name" value="Player 1">
+          </div>
             <!--Score-->
             <figcaption class="player-score">
-              <p id="player-1-score">20</p>
+              <p id="player-1-score">0</p>
             </figcaption>
           </div>
           <!--Grid-1-->
-          <div class="grid-1"></div>
+          <div class="grid-1" id="grid-active"></div>
           <!--Control buttons -->
           <div class="control-buttons">
             <div class="btn-container">
-              <button id="submit-btn">Submit</button>
+              <button id="submit-btn" class="submit-btn-1">Submit</button>
               <button class="repaint-btn">Clear</button>
             </div>
 
@@ -76,15 +81,20 @@
             <figure class="avatar" id="avatar-2">
               <img class="name-player-img" src="../assets/Avatars/ziraff.png" alt="Avatar 1" />
             </figure>
+            <!-- Name -->
+            
+            <div class="player-name-2">
+              <input id="name player-name2" type="text" placeholder="Please type your name" value="Player 2"></div>
+            <!--Score-->
             <figcaption class="player-score">
-              <p id="player-2-score">100</p>
+              <p id="player-2-score">0</p>
             </figcaption>
           </div>
           <div class="grid-2"></div>
           <!--Control buttons -->
           <div class="control-buttons">
             <div class="btn-container">
-              <button id="submit-btn">Submit</button>
+              <button id="submit-btn" class="submit-btn-2">Submit</button>
               <button class="repaint-btn">Clear</button>
             </div>
 
@@ -132,17 +142,11 @@
     </section>
 
     <section class="control-buttons">
-
+      <div class="play-btn">
+        <button class="btn restart">Restart?</button>
+      </div>
     </section>
-
-
-    <div class="play-btn">
-
-
-      <button class="btn restart">Restart?</button>
-
-    </div>
-
+    
   </main>
   <script src="../scripts/script.js"></script>
 </body>
