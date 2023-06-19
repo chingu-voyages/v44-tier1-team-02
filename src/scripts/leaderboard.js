@@ -1,8 +1,6 @@
 
 // Leaderboard
 
-// Leaderboard
-
 // code for wins and losses on leaderboard
 /*
 let player1wins = document.querySelector(".player_score_wins1");
