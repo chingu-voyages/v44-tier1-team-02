@@ -79,7 +79,6 @@ main{
 /** HEADER STYLING BEGINS **/
 .header{
 
-
 }
 
 /** HEADER STYLING BEGINS **/
@@ -95,7 +94,7 @@ align-items: center;
 }
 .header-left{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 /** Links inside header **/
 .header-link{
