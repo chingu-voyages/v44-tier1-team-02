@@ -15,16 +15,22 @@ let currentPlayer = 1;
 let updatedScore1=0;
 let updatedScore2=0;  
 let timer;
+let gameActive = false;
 
 const grid1 = document.querySelector(".grid-1");
 const grid2 = document.querySelector(".grid-2");
 let output = { rows: 10, cols: 10 };
 const total = output.rows * output.cols;
 
-// Event Listeners
+
+
 // Add event listener to the dice button
-var diceBtn = document.getElementById("dice-btn");
-diceBtn.addEventListener("click", rollDice);
+var diceBtn1 = document.getElementById("player1-dice");
+diceBtn1.addEventListener("click", rollDice);
+
+//player2 dice
+var diceBtn2 = document.getElementById("player2-dice");
+diceBtn2.addEventListener("click", rollDice);
 
 
 // Add event listener to the click on the cell for coloring
@@ -32,8 +38,19 @@ grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
 // Add event listener to the submit button
-var submitBtn = document.getElementById("submit-btn");
-submitBtn.addEventListener("click", submitAnswer);
+var submitBtn1 = document.getElementById("submit-btn-1");
+submitBtn1.addEventListener("click", submitAnswer);
+
+// Add event listener to the submit button
+var submitBtn2 = document.getElementById("submit-btn-2");
+submitBtn2.addEventListener("click", submitAnswer);
+
+//pop up section
+var popUp = document.querySelector(".pop-up-container");
+var close = document.querySelector(".close");
+close.addEventListener("click",function(){
+  popUp.style.display = "none";
+})
 
 // Create grids
 document.addEventListener("DOMContentLoaded", function () {
@@ -69,10 +86,12 @@ grid1.classList.add("grid-active");
  * Function to roll the dice
  */
 function rollDice() {
+  popUp.style.display="flex";
   // Show section
   let diceRollSect = document.querySelector(".diceRollSect");
-  diceRollSect.style.visibility = "visible";
-  
+  diceRollSect.style.display = "block"
+
+
   // Generate random numbers for the dice images
   let x = Math.floor(Math.random() * z.length + 1);
   let y = Math.floor(Math.random() * z.length + 1);
@@ -88,21 +107,17 @@ function rollDice() {
   // Change the text content to a number
   let diceRow = num1.textContent = x;
   let diceCol = num2.textContent = y;
+  startScore = score = x * y;
 
-  // Calculate the round score
-  
-  let roundScore = document.getElementById("round-score");
-   let score = x * y;
-   startScore =score = x * y;
-   roundScore=score;
-  // roundScore.textContent = "Round Score: " + score;
+   // Disable dice button for the current player's turn
+   if (currentPlayer === 1) {
+    diceBtn1.disabled = true; // Disable player 1's dice button
+  } else {
+    diceBtn2.disabled = true; // Disable player 2's dice button
+  }
 
-  // Disable the dice roll button until the current player submits their answer
-  document.getElementById("dice-btn").disabled = true;
-  document.getElementById("submit-btn").disabled = false;
 }
 
-// Color the grid cells
 /**
  * Function to color cell
  */
@@ -119,10 +134,25 @@ function colorCell(event) {
     }
   }
 }
-/**
- * Function to submit the answer
- */
+
+
+
+//Function to handle the answer submission
 function submitAnswer() {
+  const markedCells = getCurrentPlayerMarkedCells();
+  const roundScore = calculateRoundScore();
+
+  const isCorrect = checkAnswer(markedCells, roundScore);
+
+  if (isCorrect) {
+    handleCorrectAnswer(roundScore);
+  } else {
+    handleIncorrectAnswer(markedCells);
+  }
+}
+
+//function to track cell marked by player
+function getCurrentPlayerMarkedCells() {
 
   let markedCells;
   if (currentPlayer === 1) {
@@ -130,105 +160,130 @@ function submitAnswer() {
   } else {
     markedCells = Array.from(document.querySelectorAll(".colored-player2"));
   }
-  let diceRow = parseInt(document.getElementById("diceValue1").textContent);
-  let diceCol = parseInt(document.getElementById("diceValue2").textContent);
-  let roundScore = diceRow * diceCol; // Calculate the round score
-  console.log(roundScore)
+
+  return markedCells;
+}
+
+//function to calculate the round score
+function calculateRoundScore() {
+  const diceRow = parseInt(document.getElementById("diceValue1").textContent);
+  const diceCol = parseInt(document.getElementById("diceValue2").textContent);
+  return diceRow * diceCol;
+}
+
+//Function to check the answer
+function checkAnswer(markedCells, roundScore) {
+
   let markedCount = 0;
   let isCorrect = true;
 
-  // Check if the marked cells match the current round score
   for (let i = 0; i < markedCells.length; i++) {
     if (markedCells[i].classList.contains("marked")) {
-      continue; // Skip already marked cells from previous rounds
+      continue;
     }
 
     markedCount++;
     markedCells[i].classList.add("marked");
 
 
-    if (markedCount > roundScore) {   
+    if (markedCount > roundScore) {
+
       isCorrect = false;
       break;
     }
   }
-  
-  if (isCorrect && markedCount === roundScore) {
-    alert("Congratulations! Your answer is correct. You marked " + roundScore + " cells for this round.");
-   
-   
-    if (currentPlayer === 1) {
-      
-      updatedScore1++;
-      document.getElementById("player-1-score").textContent = updatedScore1;
-      console.log(updatedScore1 ,typeof updatedScore1);
-      grid1.classList.remove("grid-active");
-      grid2.classList.add("grid-active");
-    } else {
-      
-      updatedScore2++;
-      document.getElementById("player-2-score").textContent = updatedScore2;
-      console.log(updatedScore2 ,typeof updatedScore2);
-      grid2.classList.remove("grid-active");
-      grid1.classList.add("grid-active");
-    }
-    switchPlayerTurn();
+
+
+  return isCorrect && markedCount === roundScore;
+}
+
+//Function to handle the  correct answer
+function handleCorrectAnswer(roundScore) {
+  alert("Congratulations! Your answer is correct. You marked " + roundScore + " cells for this round.");
+  updatePlayerScore(roundScore);
+  disableCurrentPlayerControls();
+  switchPlayerTurn();
+  enableCurrentPlayerControls();
+
+
+
+}
+
+//function to handle the incorrect answer
+function handleIncorrectAnswer(roundScore) {
+  alert("Sorry, your answer is incorrect. The required number of marked cells for this round is: " + roundScore);
+
+}
+
+//Function to update the player score
+function updatePlayerScore(roundScore) {
+  if (currentPlayer === 1) {
+    player1Score += roundScore;
+    document.getElementById("player-1-score").textContent = player1Score;
   } else {
-    alert("Sorry, your answer is incorrect. The required number of marked cells for this round is: " + roundScore);
-    
-    if (currentPlayer === 1) {
-      // player1Score--;
-      updatedScore1--;
-      document.getElementById("player-1-score").textContent = updatedScore1;
-      console.log(updatedScore1 ,typeof updatedScore1);
-      grid1.addEventListener("click", colorCell);
-      grid1.classList.remove("grid-active");
-      grid2.classList.add("grid-active");
-      
-    } else {
-      // player2Score--;
-      updatedScore2--;
-      document.getElementById("player-2-score").textContent = updatedScore2;
-      console.log(updatedScore2 ,typeof updatedScore2);
-      grid2.addEventListener("click", colorCell);
-      grid2.classList.remove("grid-active");
-      grid1.classList.add("grid-active");
-      
-    }
+    player2Score += roundScore;
+    document.getElementById("player-2-score").textContent = player2Score;
   }
 }
 
+//Function to disable control buttons
+function disableCurrentPlayerControls() {
+  if (currentPlayer === 1) {
+    grid1.removeEventListener("click", colorCell);
+    submitBtn1.disabled = true;
+    diceBtn1.disabled = true;
+  } else {
+    grid2.removeEventListener("click", colorCell);
+    submitBtn2.disabled = true;
+    diceBtn2.disabled = true;
+  }
+}
+
+//Function to Enable game control
+function enableCurrentPlayerControls() {
+  if (currentPlayer === 1) {
+    grid1.addEventListener("click", colorCell);
+    submitBtn1.disabled = false;
+    diceBtn1.disabled = false;
+  } else {
+    grid2.addEventListener("click", colorCell);
+    submitBtn2.disabled = false;
+    diceBtn2.disabled = false;
+  }
+}
+
+
+//Function to switch the player turn
+
 function switchPlayerTurn() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
-  document.getElementById("dice-btn").disabled = false;
-  document.getElementById("submit-btn").disabled = true;
 }
 
 
 /**
  * Function to change grid size
  */
-function changeSizeGrid(event) {
-  event.preventDefault();
-  let changeHeight = document.querySelector(".change-grid-height");
-  let changeWidth = document.querySelector(".change-grid-width");
-  let tables = document.querySelectorAll("table");
+// function changeSizeGrid(event) {
+//   event.preventDefault();
+//   let changeHeight = document.querySelector(".change-grid-height");
+//   let changeWidth = document.querySelector(".change-grid-width");
+//   let tables = document.querySelectorAll("table");
 
-  //Delete previous tables
-  tables.forEach((table) => table.remove());
+//   //Delete previous tables
+//   tables.forEach((table) => table.remove());
 
-  //Change the number of columns, rows and cell size
-  output.rows = changeHeight.value;
-  output.cols = changeWidth.value;
-  document.documentElement.style.setProperty(
-    "--size-cell",
-    Math.round(500 / changeWidth.value) + "px"
-  );
+//   //Change the number of columns, rows and cell size
+//   output.rows = changeHeight.value;
+//   output.cols = changeWidth.value;
+//   document.documentElement.style.setProperty(
+//     "--size-cell",
+//     Math.round(500 / changeWidth.value) + "px"
+//   );
 
   //Create new grids
-  createGrid(grid1);
-  createGrid(grid2);
-}
+//   createGrid(grid1);
+//   createGrid(grid2);
+// }
 
 // function for restart button 
 const restart = document.querySelector(".restart");
@@ -441,6 +496,7 @@ function repaintGridAnimation() {
 
 
 
+
 // // updating with new code
 //  // Function to start a new game
 //  function startNewGame() {
@@ -507,3 +563,4 @@ function repaintGridAnimation() {
 // Add event listener to change grid size
 // let changeSize = document.querySelector(".submit-change-grid-size");
 // changeSize.addEventListener("submit", changeSizeGrid);
+

@@ -15,8 +15,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -27,7 +27,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -65,16 +65,19 @@ body {
   background-size:cover;
   color: white;
 
-
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
 }
-
+main{
+  flex-grow: 1;
+}
 /**   BUTTONS **/
 
 
 /** HEADER STYLING BEGINS **/
 .header{
-  /* border: 1px solid red; */
 
 }
 
@@ -87,6 +90,7 @@ flex-wrap: wrap;
 align-content: center;
 justify-content: space-between;
 align-items: center;
+
 }
 .header-left{
   display: flex;
@@ -94,7 +98,7 @@ align-items: center;
 }
 /** Links inside header **/
 .header-link{
-  background-color: #a3c293; /* Light green */
+  background-color: #a3c293;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -111,8 +115,8 @@ align-items: center;
 }
 
 /**logo**/
-.log{
-margin-left: 70px;
+.logo{
+margin-left: 0px;
 }
 /**timer and leader board link **/
 .game-info{
@@ -154,25 +158,28 @@ margin-right: 10px;
 
 /**   HEADER SECTION ENDS **/
 main{
+position: relative;
 
+}
+footer{
+  background-color: #a4529e;
+  height: 100px;
 }
 
 /** GAME BOARD SECTION BEGINS **/
 .game_board {
+  height: 750px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-evenly;
   align-items: center;
-  gap: 200px;
 
-  /* border: 1px solid white; */
-  padding: 50px;
 }
 /**Score Board**/
 .player {
-  /* border: 1px solid red; */
+
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -264,12 +271,10 @@ table {
 }
 /**game control buttons**/
 .control-buttons{
-  /* border: 1px solid yellow; */
   display: flex;
   justify-content: center;
 }
 .btn-container{
-  /* border: 1px solid indianred; */
   width: 50%;
   display: flex;
   justify-content: space-evenly;
@@ -281,7 +286,7 @@ table {
 .btn-container {
   display: flex;
   justify-content: center;
-  gap: 10px;
+
 }
 
 .control-buttons button {
@@ -305,75 +310,35 @@ table {
 
 /** GAME BOARD SECTION ENDS **/
 
+/** POP UP SECTION **/
 
-
-
-
-
-
-
-/* header {
-  text-align: right;
-} */
-
-
-h1 {
-  text-align: center;
-  margin-bottom: 70px;
+.pop-up-container{
+  border: 1px solid white;
+  background-color:#a3c293;
+  width: 500px;
+  height: 500px;
+  /* display: flex; */
+  position: absolute;
+  top:15px;
+  left:700px;
 }
 
 
-
-/* .player-container form {
-  display: flex;
-  align-items: end;
-  margin-bottom: 30px;
-}
-
-.player-container .name-player-img {
-  margin-right: 20px;
-}
-
-.player-container .name-player-label {
-  margin-right: 20px;
-}
-
-.player-container .name-player-edit1 {
-  display: block;
-}
-
-.player-container .name-player-edit2 {
-  display: block;
-} */
-
-
-
-input:invalid + span:after {
-  content: "✖";
-  padding-left: 5px;
-  color: red;
-}
-
-input:valid + span:after {
-  content: "✓";
-  padding-left: 5px;
-  color: green;
-}
+/***Dice section ***/
 
 .dice-btn-container {
 
-width: 120px;
+  width: 120px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+/***Dice popUp ***/
 .diceRollSect {
-  visibility: hidden;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 .diceRollSect > h1 {
@@ -455,6 +420,38 @@ img {
   text-align: center;
   color: rgb(140, 149, 102);
 }
+
+/** Correct alert popUp **/
+.alert{
+  border: 1px solid red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-msg{
+display: flex;
+border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Restart button */
 
@@ -615,81 +612,14 @@ img {
   }
 }
 
-.tick-icon {
-  color: white;
-  font-size: 7rem;
-  font-weight: bold;
-}
 
-/*ERROR ALERT MESSAGE STYLES FOR CORRECT AND IN CORRECT*/
-.error {
-  height: 150px;
-  width: 200px;
-  border-radius: 50%;
 
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  color: white;
-  padding: 1.5rem;
-}
 
-.tick {
-  padding: 1.5rem;
-}
-.error-message-correct {
-  background-color: rgb(14, 72, 123);
-}
-.error-correct-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
 
-  border-top-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  padding: 2.5rem;
-  position: relative;
-  bottom: 1000px;
-  left: 650px;
-  background: url(../../assets/dice-images/background.jpg) center no-repeat,
-    #d8969a;
-  background-size: cover;
-  border: 2px solid rgb(150, 13, 114);
-  max-width: 500px;
-}
 
-.close-correct {
-  height: 40px;
-  width: 35px;
-  padding: 0.1rem;
-  font-weight: bold;
-  font-size: 2rem;
-  text-align: center;
-  color: white;
-  align-self: flex-start;
-  cursor: pointer;
-}
-
-.close-correct:hover {
-  border: 2px solid rgb(14, 72, 123);
-  color: rgb(14, 72, 123);
-  color: white;
-  border-radius: 20%;
-}
-
-.display {
-  display: none;
-}
 
 /*STYLES FOR MOBILE WIDTHS*/
-@media (min-width: 500px) {
+ @media (min-width: 500px) {
   .error-correct-container {
     flex-direction: row;
   }
