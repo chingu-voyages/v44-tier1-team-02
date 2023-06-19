@@ -37,8 +37,12 @@ grid1.addEventListener("click", colorCell);
 grid2.addEventListener("click", colorCell);
 
 // Add event listener to the submit button
-var submitBtn = document.getElementById("submit-btn-1");
-submitBtn.addEventListener("click", submitAnswer);
+var submitBtn1 = document.getElementById("submit-btn-1");
+submitBtn1.addEventListener("click", submitAnswer);
+
+// Add event listener to the submit button
+var submitBtn2 = document.getElementById("submit-btn-2");
+submitBtn2.addEventListener("click", submitAnswer);
 
 //pop up section
 var popUp = document.querySelector(".pop-up-container");
@@ -223,20 +227,15 @@ function handleCorrectAnswer(roundScore) {
   disableCurrentPlayerControls();
   switchPlayerTurn();
   enableCurrentPlayerControls();
-  showPopupMessage(true, roundScore);
 
-  showCorrectMessage();
-  hideIncorrectMessage();
+
+
 }
 
 //function to handle the incorrect answer
 function handleIncorrectAnswer(markedCells) {
   alert("Sorry, your answer is incorrect. The required number of marked cells for this round is: " + roundScore);
 
-  clearMarkedCells(markedCells);
-  showPopupMessage(false, roundScore);
-  showIncorrectMessage();
-  hideCorrectMessage();
 }
 
 //Function to update the player score
@@ -254,8 +253,12 @@ function updatePlayerScore(roundScore) {
 function disableCurrentPlayerControls() {
   if (currentPlayer === 1) {
     grid1.removeEventListener("click", colorCell);
+    submitBtn1.disabled = true;
+    diceBtn1.disabled = true;
   } else {
     grid2.removeEventListener("click", colorCell);
+    submitBtn2.disabled = true;
+    diceBtn2.disabled = true;
   }
 }
 
@@ -263,54 +266,23 @@ function disableCurrentPlayerControls() {
 function enableCurrentPlayerControls() {
   if (currentPlayer === 1) {
     grid1.addEventListener("click", colorCell);
+    submitBtn1.disabled = false;
+    diceBtn1.disabled = false;
   } else {
     grid2.addEventListener("click", colorCell);
+    submitBtn2.disabled = false;
+    diceBtn2.disabled = false;
   }
 }
-// Function to show/hide popup message
-function showPopupMessage(isCorrect, roundScore) {
-  const popupMessage = document.querySelector(".popup-message");
-  popupMessage.textContent = isCorrect
-    ? `Congratulations! Your answer is correct. You marked ${roundScore} cells for this round.`
-    : `Sorry, your answer is incorrect. The required number of marked cells for this round is: ${roundScore}.`;
-  popUp.style.display = "flex";
-}
 
-// Function to clear marked cells
-function clearMarkedCells(markedCells) {
-  markedCells.forEach((cell) => {
-    cell.classList.remove("marked");
-  });
-}
 
-// Alert messages
-function showCorrectMessage() {
-  document.getElementById("correct-msg").style.display = "block";
-}
 
-function hideCorrectMessage() {
-  document.getElementById("correct-msg").style.display = "none";
-}
 
-function showIncorrectMessage() {
-  document.getElementById("incorrect-msg").style.display = "block";
-}
 
-function hideIncorrectMessage() {
-  document.getElementById("incorrect-msg").style.display = "none";
-}
-
-function clearMarkedCells(markedCells) {
-  markedCells.forEach(cell => {
-    cell.classList.remove("marked");
-  });
-}
 
 //Function to switch the player turn
 function switchPlayerTurn() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
-  document.getElementById("dice-btn").disabled = false;
-  document.getElementById("submit-btn").disabled = true;
 }
 
 
