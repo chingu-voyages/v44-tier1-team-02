@@ -104,6 +104,13 @@ function rollDice() {
   let diceCol = num2.textContent = y;
   startScore = score = x * y;
 
+   // Disable dice button for the current player's turn
+   if (currentPlayer === 1) {
+    diceBtn1.disabled = true; // Disable player 1's dice button
+  } else {
+    diceBtn2.disabled = true; // Disable player 2's dice button
+  }
+
 }
 
 /**
@@ -121,48 +128,6 @@ function colorCell(event) {
     }
   }
 }
-
-
-/**
- * Function to submit the answer
- */
-// function submitAnswer() {
-//   let coloredCells;
-
-//   if (currentPlayer === 1) {
-//     coloredCells = [];
-//     const cells = document.querySelectorAll(".colored-player1");
-//     for (let i = 0; i < cells.length; i++) {
-//       coloredCells.push(cells[i]);
-//     }
-//   } else {
-//     coloredCells = [];
-//     const cells = document.querySelectorAll(".colored-player2");
-//     for (let i = 0; i < cells.length; i++) {
-//       coloredCells.push(cells[i]);
-//     }
-//   }
-
-//   let diceRow = parseInt(document.getElementById("diceValue1").textContent);
-//   let diceCol = parseInt(document.getElementById("diceValue2").textContent);
-//   let roundScore = diceRow * diceCol; // Calculate the round score
-
-//   let markedCount = 0;
-//   let isCorrect = true;
-
-//   // Check if the marked cells match the current round score
-//   for (let i = 0; i < coloredCells.length; i++) {
-//     if (coloredCells[i].classList.contains("marked")) {
-//       continue; // Skip already marked cells from previous rounds
-//     }
-
-//     markedCount++;
-//     coloredCells[i].classList.add("marked");
-
-//     if (markedCount > roundScore) {
-//       isCorrect = false;
-//       break;
-//
 
 
 //Function to handle the answer submission
@@ -222,7 +187,6 @@ function checkAnswer(markedCells, roundScore) {
 //Function to handle the  correct answer
 function handleCorrectAnswer(roundScore) {
   alert("Congratulations! Your answer is correct. You marked " + roundScore + " cells for this round.");
-
   updatePlayerScore(roundScore);
   disableCurrentPlayerControls();
   switchPlayerTurn();
@@ -233,7 +197,7 @@ function handleCorrectAnswer(roundScore) {
 }
 
 //function to handle the incorrect answer
-function handleIncorrectAnswer(markedCells) {
+function handleIncorrectAnswer(roundScore) {
   alert("Sorry, your answer is incorrect. The required number of marked cells for this round is: " + roundScore);
 
 }
@@ -274,10 +238,6 @@ function enableCurrentPlayerControls() {
     diceBtn2.disabled = false;
   }
 }
-
-
-
-
 
 
 //Function to switch the player turn
