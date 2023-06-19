@@ -1,70 +1,54 @@
 
-  /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;900&family=Poppins&family=Ubuntu:wght@300&display=swap'); */
 
-/* body{
-  box-sizing: border-box;
-} */
-
-
-  .about{
+  .about-us{
     text-align: center;
     text-decoration: underline;
     background: #cbf9e9;
   }
-
-  .developers{
-    padding-left: 15px;
+  .about{
+    text-align: left;
   }
+main{
+width:99%;
+font-family: sans-serif;
+}
+  
 body , h1, .article{
-    margin: 10px;
-    padding: 5px;
+    
+    padding-left: 10px;
     background-color:#1dad7b;
-
   }
  
   .article{
     background: #cbf9e9;
-
+    padding-right: 10px;
+    border-radius: 10px;
   }
   
-  .article > h2, p {
+  .article > h3, p {
     margin: 4px;
     font-size: 90%;
+    
   }
-.rules{
-    margin-right: 39rem;
-    margin-left: 10px;
-    background-color: #d6e553;
-    padding: 8px;
-    border-radius: 10px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    color: green
+
+.nav{
+  background-color: #059460; 
+  overflow: hidden;
+  
+  
 }
 
-.start{
-    margin-left: 40rem;
-    background-color:  #66ce51;
-    padding: 8px;
-    border-radius: 10px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    color: green;
+.nav a {
+  float: right;
+  color: rgb(127, 198, 21);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+ 
 }
 
-*{
-  /* padding: 0;
-  margin: 0; */
-  box-sizing: border-box;
-/* font-family: 'Montserrat', 'Poppins','Ubuntu',sans-serif; */
-}
 
-.container{
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: aliceblue; */
-}
 
 .container p{
   text-align: center;
@@ -85,13 +69,11 @@ body , h1, .article{
   text-align: center;
 }
 
-
-
 .wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #cbf9e9; */
+  
 }
 
 .content{
@@ -99,10 +81,6 @@ body , h1, .article{
   align-items: center;
 }
 
-/* .img{
-  width: 100px;
-  height:100px;
-} */
 .card{
-  
+  margin-bottom:50px ;
 }

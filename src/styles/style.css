@@ -484,6 +484,7 @@ img {
 /* body for page 2 */
 .page2 {
   /* background-color: #9ecae0; */
+  background-image:url(src/assets/game-background-1.jpg) ;
   background: url(../../assets/dice-images/background.jpg) center;
   font-family: "Kristen-ITC", serif;
   color: #3a3d51;
