@@ -8,11 +8,12 @@ let z = [
   "../assets/dice-images/dice6.png"
 ];
 
+// starting conditions
 let score = 0;
 let startScore = 0;
 let currentPlayer = 1;
-let player1Score = 0;
-let player2Score = 0;
+let updatedScore1=0;
+let updatedScore2=0;  
 let timer;
 let gameActive = false;
 
@@ -57,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
   createGrid(grid2);
 });
 
-
 /**
  * Function to create grid
  */
@@ -67,7 +67,7 @@ function createGrid(grid) {
   for (let i = 0; i < output.rows; i++) {
     const row = document.createElement("tr");
     for (let j = 0; j < output.cols; j++) {
-      const cell = document.createElement("td");
+      let cell = document.createElement("td");
       cell.classList.add("box");
       row.appendChild(cell);
     }
@@ -75,6 +75,10 @@ function createGrid(grid) {
   }
   grid.appendChild(table);
 }
+
+// player 1 is active by default when page isloaded
+grid1.classList.add("grid-active");
+
 
 // Roll the dice
 
@@ -86,6 +90,7 @@ function rollDice() {
   // Show section
   let diceRollSect = document.querySelector(".diceRollSect");
   diceRollSect.style.display = "block"
+
 
   // Generate random numbers for the dice images
   let x = Math.floor(Math.random() * z.length + 1);
@@ -117,6 +122,7 @@ function rollDice() {
  * Function to color cell
  */
 function colorCell(event) {
+  
   if (event.target.tagName === "TD" && !event.target.classList.contains("colored")) {
     // Color the cell based on the current player
     if (currentPlayer === 1) {
@@ -128,6 +134,7 @@ function colorCell(event) {
     }
   }
 }
+
 
 
 //Function to handle the answer submission
@@ -146,12 +153,14 @@ function submitAnswer() {
 
 //function to track cell marked by player
 function getCurrentPlayerMarkedCells() {
+
   let markedCells;
   if (currentPlayer === 1) {
     markedCells = Array.from(document.querySelectorAll(".colored-player1"));
   } else {
     markedCells = Array.from(document.querySelectorAll(".colored-player2"));
   }
+
   return markedCells;
 }
 
@@ -164,6 +173,7 @@ function calculateRoundScore() {
 
 //Function to check the answer
 function checkAnswer(markedCells, roundScore) {
+
   let markedCount = 0;
   let isCorrect = true;
 
@@ -175,11 +185,14 @@ function checkAnswer(markedCells, roundScore) {
     markedCount++;
     markedCells[i].classList.add("marked");
 
+
     if (markedCount > roundScore) {
+
       isCorrect = false;
       break;
     }
   }
+
 
   return isCorrect && markedCount === roundScore;
 }
@@ -241,6 +254,7 @@ function enableCurrentPlayerControls() {
 
 
 //Function to switch the player turn
+
 function switchPlayerTurn() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
 }
@@ -271,9 +285,113 @@ function switchPlayerTurn() {
 //   createGrid(grid2);
 // }
 
+// function for restart button 
+const restart = document.querySelector(".restart");
+let playername1 =document.getElementById("player-name1");
+let playername2 =document.getElementById("player-name2");
+
+function restartBtn(){
+
+  confirm("Are you sure you would like to start a new game?")
+  
+  // score = 0;
+  // startScore = 0;
+  // currentPlayer = 1;
+  // updatedScore1=0;
+  // updatedScore2=0;  
+  // timer;
+  console.log(playername1)
+    //sets the name input back to an empty value
+   if(playername1){
+    // playername1.value="pp";
+   }
+    
+     
+    // playername2.value=" ";
+   
+   // // sets the score back to 0
+   document.getElementById("player-1-score").textContent = 0;
+   document.getElementById("player-2-score").textContent = 0;
+   
+   // // clears the grid to start a new game
+   
+   let cell = document.querySelectorAll(".grid td");
+
+   for (let i = 0; i < cell.length; i++){
+    cell[i].classList.remove("colored");
+    cell[i].setAttribute("painted",false);
+   }
+  //  cells.forEach((cell)=>{
+  //   cell.classList.remove("colored");
+  //   cell.setAttribute("painted",false);
+  //  })
 
 
 
+  //  Updates leaderboard
+  
+  // // Function to update the win/loss tally
+  // function updateTally() {
+  //   // Code to update the win/loss tally
+  // }
+  }
+
+// Add event listener to restart button
+restart.addEventListener("click",restartBtn);
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // //////////////////////////////////////////////////////////////
+
+  // const restart = document.querySelector(".restart");
+  // let playername1 =document.getElementById("player-name1");
+  // let playername2 =document.getElementById("player-name2");
+  
+// function restartBtn(){
+
+// confirm("Are you sure you would like to start a new game?")
+
+// // score = 0;
+// // startScore = 0;
+// // currentPlayer = 1;
+// // updatedScore1=0;
+// // updatedScore2=0;  
+// // timer;
+
+//   //sets the name input back to an empty value
+//   playername1.value.textContent="ppppp";
+//   // playername2.value=" ";
+ 
+//  // // sets the score back to 0
+//  document.getElementById("player-1-score").textContent = 0;
+//  document.getElementById("player-2-score").textContent = 0;
+ 
+//  // // clears the grid to start a new game
+
+
+// //  Updates leaderboard
+
+// // // Function to update the win/loss tally
+// // function updateTally() {
+// //   // Code to update the win/loss tally
+// // }
+
+// }
+
+// // // Event listener for restart button
+// restart.addEventListener("click",restartBtn);
+
+/////////////////////////////////////////////////////////////////////
 
 
 
@@ -304,27 +422,25 @@ function switchPlayerTurn() {
 //   }
 // }
 
+repaintBtn = document.querySelector(".repaint-btn")
 
-// //Clear grid for repainting
-// function repaintGridAnimation() {
-//   let cells = document.querySelectorAll(".grid td");
+repaintBtn.addEventListener("click",repaintGridAnimation)
+//Clear grid for repainting
+function repaintGridAnimation() {
+  let cells = document.querySelectorAll(".grid td");
 
-//   //Remove class with animation
-//   cells.forEach((cell) => cell.classList.remove("clear-animation"));
+  //Remove class with animation
+  cells.forEach((cell) => cell.classList.remove("clear-animation"));
 
-//   //Add a class with animation and erase the filled cells in the current step
-//   cells.forEach((cell, i) => {
-//     setTimeout(() => {
-//       cell.classList.add("clear-animation");
-//       if (cell.getAttribute("painted") !== "true") {
-//         cell.style.backgroundColor = "white";
-//       }
-//     }, i * 10);
-//   });
-
-//   //Set initial score
-//   score = startScore;
-// }
+  //Add a class with animation and erase the filled cells in the current step
+  cells.forEach((cell, i) => {
+    setTimeout(() => {
+      cell.classList.add("clear-animation");
+      if (cell.getAttribute("painted") !== "true") {
+        cell.style.backgroundColor = "white";
+      }
+    }, i * 10);
+  })};
 
 // /**
 //  * Function to change color
@@ -336,13 +452,6 @@ function switchPlayerTurn() {
 //   );
 // }
 
-
-
-// User can see a button in the game control pane
-// to start a new game, which
-// updates the Leaderboard, clears the grid, and starts a new game.
-
-
 // // Add event listener to the dice button
 // var diceBtn = document.getElementById("dice-btn");
 // diceBtn.addEventListener("click", rollDice);
@@ -350,8 +459,6 @@ function switchPlayerTurn() {
 // // Add event listener to the click on the cell for coloring
 // grid1.addEventListener("click", colorCell);
 // grid2.addEventListener("click", colorCell);
-
-
 
 // //Add an event listener to right click on the cell for clearing the color
 // grid1.addEventListener("contextmenu", clearCell);
@@ -361,34 +468,6 @@ function switchPlayerTurn() {
 // let repaintBtn = document.querySelector(".repaint-btn");
 // repaintBtn.addEventListener("click", repaintGridAnimation);
 
-// // Add an event listener to double click on the cell for clearing the color
-// grid1.addEventListener("contextmenu", clearCell);
-// grid2.addEventListener("contextmenu", clearCell);
-
-
-// // Event listener for restart button
-// document.querySelector(".restart").addEventListener("click",function(){
-
-//   // sets the name input back to an empty value
-//   document.querySelector(".name-player-edit1").value="";
-//   document.querySelector(".name-player-edit2").value="";
-
-// // sets the score back to 0
-
-//   document.querySelector(".name-player-score1").textContent="Score : "+initialScore
-//   document.querySelector(".name-player-score2").textContent="Score : "+initialScore
-
-// // clears the grid
-
-//     document.querySelector(".grid1").style.backgroundColor = "white";
-//     document.querySelector(".grid2").style.backgroundColor = "white";
-//     // score++;
-
-// })
-
-
-
-// // updates the leaderboard
 // // Added code from the 'origin/correct-alert' branch
 // let error = document.querySelector(".error-correct-container");
 // let closeIcon = document.querySelector(".close-correct");
@@ -416,4 +495,72 @@ function switchPlayerTurn() {
 // selectColor.addEventListener("change", changeColor);
 
 
+
+
+// // updating with new code
+//  // Function to start a new game
+//  function startNewGame() {
+//   // Check if a game is already in progress
+//   if (gameInProgress) {
+//     // Display a modal alert to confirm abandoning the current game
+//     if (confirm("Are you sure you want to start a new game?")) {
+//       // Update the leaderboard
+//       updateLeaderboard();
+
+//       // Clear the grid
+//       clearGrid();
+
+//       // Start a new game
+//       startGame();
+//     }
+//   } else {
+//     // Start a new game
+//     startGame();
+//   }
+// }
+// }
+
+// // Function to clear the grid
+// function clearGrid() {
+//   // Code to clear the grid
+// }
+
+// // Function to start a new game
+// function startGame() {
+//   // Reset scores and other game-related variables
+//   score = 0;
+//   startScore = 0;
+//   currentPlayer = 1;
+//   player1Score = 0;
+//   player2Score = 0;
+
+//   // ...any other initialization code...
+
+//   // Start the game timer if applicable
+//   // timer = setInterval(gameTimer, 1000);
+
+//   // Enable the dice roll button
+//   document.getElementById("rollDiceBtn").disabled = false;
+// }
+
+// // Function to check for errors
+// function checkErrors() {
+//   // Code to check for errors
+// }
+
+// function gameTimer() {
+//   // ... timer logic ...
+//   // ... check if time is up and end the game ...
+//   // ... compare player1Score and player2Score to determine the winner ...
+// }
+
+// // Event listener for the grid squares
+// const gridSquares = document.getElementsByClassName("grid-square");
+// for (let i = 0; i < gridSquares.length; i++) {
+//   gridSquares[i].addEventListener("click", markGrid);
+// }
+
+// Add event listener to change grid size
+// let changeSize = document.querySelector(".submit-change-grid-size");
+// changeSize.addEventListener("submit", changeSizeGrid);
 

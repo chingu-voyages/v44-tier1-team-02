@@ -108,10 +108,12 @@ align-items: center;
 .header-link a {
   color: #ffffff; /* White */
   text-decoration: none;
+  
 }
 .header-link a:hover {
   text-decoration: underline;
 }
+
 /**logo**/
 .logo{
 margin-left: 0px;
@@ -182,9 +184,11 @@ footer{
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-
 }
 
+.name{
+  /* color: #1dad7b; */
+}
 .score-board{
   /* border: 1px solid white; */
   display: flex;
@@ -234,6 +238,15 @@ font-size: 32px;
   width: 500px;
   place-items: center;
   background-color: white;
+  
+}
+
+.grid-active{
+  border:solid 5px #43ed9b;
+}
+
+.player-score{
+  
 }
 
 table {
@@ -459,10 +472,16 @@ border: 1px solid black;
   background-color: rgb(127, 198, 21);
 }
 
+.play-btn{
+/* align-self: center; */
+
+}
+
 /* Leader board section */
 /* body for page 2 */
 .page2 {
   /* background-color: #9ecae0; */
+  background-image:url(src/assets/game-background-1.jpg) ;
   background: url(../../assets/dice-images/background.jpg) center;
   font-family: "Kristen-ITC", serif;
   color: #3a3d51;

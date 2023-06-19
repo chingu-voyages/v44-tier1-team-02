@@ -1,0 +1,42 @@
+
+
+.topnav{
+    background-color:gray ;
+    overflow: hidden;
+    font-family:sans-serif;
+}
+
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    
+  }
+
+  .topnav a.active {
+    background-color: #04AA6D;
+    color:#fff;
+  }
+
+  body{
+    background-image: url('/src/assets/starting-page/Background_page1.jpg');
+    
+  }
+
+  .title{
+    position: fixed;
+    text-align: center;
+    margin-top: 25rem;
+    margin-left: 39rem;
+    font-family:sans-serif;
+    
+    
+  }
